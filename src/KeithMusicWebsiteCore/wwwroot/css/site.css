@@ -1,14 +1,50 @@
-﻿body {
+﻿/******************************************
+    FONTS
+******************************************/
+
+@font-face{
+    font-family: "Idion";
+    src: url("../fonts/Idion.otf");
+    src: url("../fonts/Idion.eot");
+    src: url("../fonts/Idion.eot?iefix") format("embedded-opentype"), url("../fonts/Idion.woff") format("woff"), url("../fonts/Idion.ttf") format("truetype");
+}
+
+
+/********************************************
+    GENERAL
+********************************************/
+
+a,
+a:hover {
+    text-decoration: none;
+}
+
+body {
+    height: 100vh;
     background-color: #00331A;
     display: flex;
     flex-direction: column;
 }
 
+#view-container {
+    
+}
+
+
+/*************************************************************************************************************************
+    CELLPHONE SIZE
+*************************************************************************************************************************/
+
+/******************************************
+    LAYOUT
+******************************************/
+
 #view-and-keith-picture-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 100%;
-    height: calc(100vh - 200px);
+    height: auto; 
+    position: relative;
 }
 
 #top-banner {
@@ -21,31 +57,80 @@
     background-size: cover;
 }
 
-#navigation-selectors-container,
-#navigation-selectors-container a {  
+.navigation-selectors-container {  
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+.navigation-selectors-container li {
+    list-style: none;
+    padding: 20px 0;
+}
+
+.navigation-selectors-container li a {
+    font-size: 2em;
+    font-family: Idion, sans-serif;
+    color: #800000;
+    padding: 20px;
     text-decoration: none;
 }
 
+.navigation-selectors-container a:hover {
+    cursor: pointer;
+    color: rgba(25,142,181,1);
+    background-color: rgba(25,142,181,.25);
+}
+
 .navigation-selector {
-    color: #800000;
+
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    color: #CBD1D4;
+    padding: 0 20px;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;   
 }
 
 
 
-/**********************************************
+
+
+/****************************************************************************************************************
     660px and UP
-**********************************************/
+****************************************************************************************************************/
+
+/******************************************
+    LAYOUT
+******************************************/
 
 @media screen and (min-width: 660px) {
 
     #keith-layout-picture {
-        background: linear-gradient(to left, #00331A, transparent), linear-gradient(to bottom, #00331A, transparent), url("../img/keith-standing.jpg") no-repeat center;
+        background: linear-gradient(to left, #00331A, transparent 30%), 
+                    linear-gradient(to bottom, #00331A, transparent 30%),
+                    url("../img/keith-standing.jpg") no-repeat center;
         background-position: center;
         background-size: cover;
         width: 300px;
         height: 100%;
+    }
+
+    #view-and-keith-picture-container {
+        flex-direction: row;
+    }
+
+    .navigation-selectors-container {  
+        justify-content: space-around;
+        font-size: 1.5em;
+    }
+
+    footer {
+        margin-left: auto;
+        position: relative;
     }
 }
