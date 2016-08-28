@@ -1,3 +1,51 @@
 ﻿body {
-    background-color: blueviolet;
+    background-color: #00331A;
+    display: flex;
+    flex-direction: column;
+}
+
+#view-and-keith-picture-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: calc(100vh - 200px);
+}
+
+#top-banner {
+    width: 100%;
+    height: 200px;
+    border: 0;
+    margin: 0;
+    background: linear-gradient(to top, #00331A, transparent), url("../img/banner-picture-2.jpg") no-repeat center;
+    background-position: center;
+    background-size: cover;
+}
+
+#navigation-selectors-container,
+#navigation-selectors-container a {  
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navigation-selector {
+    color: #800000;
+}
+
+
+
+/**********************************************
+    660px and UP
+**********************************************/
+
+@media screen and (min-width: 660px) {
+
+    #keith-layout-picture {
+        background: linear-gradient(to left, #00331A, transparent), linear-gradient(to bottom, #00331A, transparent), url("../img/keith-standing.jpg") no-repeat center;
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 100%;
+    }
 }

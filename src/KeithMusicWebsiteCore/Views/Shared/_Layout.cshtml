@@ -11,34 +11,21 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <div class="container-fluid">
-            <ul class="nav navbar-nav navbar-left">
-                <li>
-                    <button id="sidebarToggle" class="btn btn-primary">
-                        <i class="fa fa-angle-left"></i>
-                    </button>
-                </li>
-            </ul>
-            <a asp-controller="App" asp-action="Index" class="navbar-brand">The World</a>
-            <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" class="btn btn-sm btn-info">
-                        <i class="fa fa-save"></i> Save
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="btn btn-sm btn-info">
-                        <i class="fa fa-print"></i> Print
-                    </a>
-                </li>
-            </ul>
-        </div>
-    
-    <div>
-        @RenderBody()
+    <div id="top-banner"></div>
+
+    <div id="navigation-selectors-container">
+        <a class="navigation-selector" href="#">Home</a>
+        <a class="navigation-selector" href="#">Music</a>
+        <a class="navigation-selector" href="#">About</a>
     </div>
+
+    <div id="view-and-keith-picture-container">
+        <div id="keith-layout-picture"></div>
+        <div class="view-container">
+            @RenderBody()
         </div>
+    </div>
+
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="~/js/site.js"></script>
