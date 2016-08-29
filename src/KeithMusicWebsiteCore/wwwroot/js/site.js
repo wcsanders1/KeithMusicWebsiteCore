@@ -35,3 +35,26 @@ $(window).on("resize", function () {
         $("#top-banner").after($navigationSelectorsContainer);
     }
 }).resize();
+
+
+
+/************   AJAX: SHOWS LYRIC SNIPPETS   **************************************************/
+
+var snippetRequest = new XMLHttpRequest();
+
+snippetRequest.onreadystatechange = function () {
+    if (snippetRequest.readyState === 4) {
+        var snippets = JSON.parse(snippetRequest.responseText);
+        var statusHTML = "<ul>";
+
+        for (var i = 0; i < snippets.length; i += 1) {
+            console.log(snippets[i].title);
+            statusHTML += "<li>" + snippets[i].title + "</li>";
+        }
+        statusHTML += "</ul>";
+        document.getElementById("snippet-container").innerHTML = statusHTML;
+    }
+};
+
+snippetRequest.open("GET", "json/lyric-snippets.json");
+snippetRequest.send();

@@ -27,7 +27,9 @@ body {
 }
 
 #view-container {
-    
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 
@@ -99,6 +101,21 @@ footer {
 
 
 
+/******************************************
+    INDEX
+******************************************/
+#youtube-link {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#snippet-container {
+    color: white;
+}
+
+
+
 
 /****************************************************************************************************************
     660px and UP
@@ -108,7 +125,7 @@ footer {
     LAYOUT
 ******************************************/
 
-@media screen and (min-width: 660px) {
+@media screen and (min-width: 760px) {
 
     #keith-layout-picture {
         background: linear-gradient(to left, #00331A, transparent 30%), 
@@ -130,7 +147,11 @@ footer {
     }
 
     footer {
-        margin-left: auto;
-        position: relative;
+        width: 100%;
+        flex-direction: row;
+    }
+
+    #view-container {
+        flex-direction: row;
     }
 }
