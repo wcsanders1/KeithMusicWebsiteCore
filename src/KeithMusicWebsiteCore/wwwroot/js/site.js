@@ -41,18 +41,35 @@ $(window).on("resize", function () {
 /************   AJAX: SHOWS LYRIC SNIPPETS   **************************************************/
 
 var snippetRequest = new XMLHttpRequest();
+var $snippetContainer = $("#snippet-container");
+var snippetIndex = 0;
+var snippets;
+var statusHTML;
 
 snippetRequest.onreadystatechange = function () {
-    if (snippetRequest.readyState === 4) {
-        var snippets = JSON.parse(snippetRequest.responseText);
-        var statusHTML = "<ul>";
 
-        for (var i = 0; i < snippets.length; i += 1) {
-            console.log(snippets[i].title);
-            statusHTML += "<li>" + snippets[i].title + "</li>";
-        }
-        statusHTML += "</ul>";
-        document.getElementById("snippet-container").innerHTML = statusHTML;
+    if (snippetRequest.readyState === 4) {
+        snippets = JSON.parse(snippetRequest.responseText);
+
+        var loopSnippets = function () {
+
+            $snippetContainer.fadeOut("slow", function () {
+                $snippetContainer.empty();
+
+                if (snippetIndex < snippets.length - 1) {
+                    snippetIndex += 1;
+                } else {
+                    snippetIndex = 0;
+                }
+
+                statusHTML = snippets[snippetIndex].title;
+                $snippetContainer.append("<p>" + statusHTML + "</p>");
+                $snippetContainer.fadeIn("slow");
+            })};
+
+        loopSnippets();
+
+        setInterval(function () { loopSnippets(); }, 3000);
     }
 };
 
