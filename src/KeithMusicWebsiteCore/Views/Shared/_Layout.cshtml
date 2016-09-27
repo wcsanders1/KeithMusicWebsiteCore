@@ -12,28 +12,30 @@
 </head>
 
 <body>
-    <div id="top-banner">
-        <div id="name-title-container">
-            <h1>Keith Sanders</h1>
-            <h2>Singer | Songwriter</h2>
+    <div id="not-footer-container">
+        <div id="top-banner">
+            <div id="name-title-container">
+                <h1>Keith Sanders</h1>
+                <h2>Singer | Songwriter</h2>
+            </div>
+            <div id="navigation-container">
+                <a href="#">Home</a>
+                <a href="#">Music</a>
+                <a href="#">Contact</a>
+            </div>
         </div>
-        <div id="navigation-container">
-            <a href="#">Home</a>
-            <a href="#">Music</a>
-            <a href="#">Contact</a>
+
+        <div id="view-and-keith-picture-container">
+            <div id="keith-layout-picture"></div>
+            <div id="view-container">
+                @RenderBody()
+            </div>
+            @*footer was here*@
         </div>
     </div>
-
-    <div id="view-and-keith-picture-container">
-        <div id="keith-layout-picture"></div>
-        <div id="view-container">
-            @RenderBody()
-        </div>
-        <footer>
-            <p>Bill Sanders &copy; 2016</p>
-        </footer>
-    </div>
-
+    <footer>
+        <p>Bill Sanders &copy; 2016</p>
+    </footer>
     
 
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>

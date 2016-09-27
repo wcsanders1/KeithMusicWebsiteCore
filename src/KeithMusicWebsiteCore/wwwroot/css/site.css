@@ -20,15 +20,30 @@ a:hover {
 }
 
 body {
-    height: 100vh;
+    min-height: 100vh;
     background-color: #00331A;
-    display: flex;
-    flex-direction: column;
+    position: relative;
+}
+
+#not-footer-container {
+    min-height: 95vh;
 }
 
 #view-container {
     display: flex;
     flex-direction: column;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    color: #CBD1D4;
+    padding: 0 20px;
+    justify-content: flex-end;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5vh;
 }
 
 
@@ -120,18 +135,6 @@ body {
 
 .navigation-selector {
 
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    color: #CBD1D4;
-    padding: 0 20px;
-    justify-content: flex-end;
-    position: absolute;
-    margin-top: auto;
-    bottom: 0;
-    left: 0;
 }
 
 
