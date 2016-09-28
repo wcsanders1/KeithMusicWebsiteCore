@@ -30,7 +30,7 @@ namespace KeithMusicWebsiteCore.Models
                 Id = 2,
                 Title = "Beholder",
                 AudioFile = "",
-                Lyrics = "",
+                Lyrics = "I'm the eye of the beholder",
                 Snippet = ""
             }
         };
