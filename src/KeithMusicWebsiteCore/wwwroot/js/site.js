@@ -1,4 +1,6 @@
-﻿var songsDB;
+﻿/************************   GLOBAL VARIABLES   *********************************/
+var pageSize = $("#page-size").css("z-index");
+var songsDB;
 
 /************   SETS HEIGHT OF #view-and-keith-picture-container IN LAYOUT   ******************************/
 
@@ -30,6 +32,7 @@ function CallDatabase() {
 }
 
 $(document).ready(function () {
+    pageSize = $("#page-size").css("z-index");
     CallDatabase();
 });
 
@@ -56,7 +59,7 @@ function OnSuccess(data) {
             $newSnippet.click(ShowLyrics);
             $snippetContainer.append($newSnippet);
             $snippetContainer.fadeIn("slow");
-        })
+        });
     };
 
     loopSnippets();
@@ -70,14 +73,31 @@ function OnError(data) {
 
 function ShowLyrics() {
     var index = parseInt($(this).attr("id").replace(/[^\d.]/g, ''));
+    var $viewContainer = $("#view-container");
+    var $viewAndKeithPictureContainer = $("#view-and-keith-picture-container");
     var $keithLayoutPicture = $("#keith-layout-picture");
+    var $lyricContainer = $("<div id='lyric-container'></div>");
     var $lyrics = $("<p>" + songsDB[index].lyrics + "</p>");
 
-    $keithLayoutPicture.css("background", "none");
-    $keithLayoutPicture.css("background-color", "brown");
-    $keithLayoutPicture.append($lyrics);
+    if (pageSize == 1) {
+        $viewContainer.prepend($lyricContainer);
+    }
+
+    if (pageSize >= 2) {      
+        $keithLayoutPicture.fadeOut("fast", function () {
+            $viewAndKeithPictureContainer.prepend($lyricContainer);
+        });
+    }
+
+    //$keithLayoutPicture.css("background", "none");
+    //$keithLayoutPicture.css("background-color", "brown");
+    //$keithLayoutPicture.append($lyrics);
 
 }
+
+$(window).resize(function () {
+    pageSize = $("#page-size").css("z-index");
+});
 
 /************   AJAX: SHOWS LYRIC SNIPPETS   **************************************************/
 

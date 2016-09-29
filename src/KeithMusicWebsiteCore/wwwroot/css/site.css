@@ -47,9 +47,16 @@ footer {
 }
 
 
+
 /*************************************************************************************************************************
-    CELLPHONE SIZE
+    CELLPHONE SIZE    (PAGE-SIZE 1)
 *************************************************************************************************************************/
+
+#page-size {
+    display: none;
+    position:relative;
+    z-index: 1;
+}
 
 
 #view-and-keith-picture-container {
@@ -141,14 +148,15 @@ footer {
 
 
 /****************************************************************************************************************
-    760px and UP
+    760px and UP       (PAGE-SIZE 2)
 ****************************************************************************************************************/
 
-/******************************************
-    LAYOUT
-******************************************/
 
 @media screen and (min-width: 760px) {
+
+    #page-size {
+        z-index: 2;
+    }
 
     #top-banner {
         flex-direction: row;
@@ -173,9 +181,6 @@ footer {
         background: linear-gradient(to left, #00331A, transparent 30%), linear-gradient(to bottom, #00331A, transparent 30%), url("../img/keith-standing.jpg") no-repeat center;
         background-position: center;
         background-size: cover;
-    }
-
-    .picture-and-lyric-container {
         width: 500px;
         height: 100%;
     }
@@ -196,3 +201,13 @@ footer {
 }
 
 
+/****************************************************************************************************************
+    1200px and UP       (PAGE-SIZE 3)
+****************************************************************************************************************/
+
+
+@media screen and (min-width: 1200px) {
+    #page-size {
+        z-index: 3;
+    }
+}
