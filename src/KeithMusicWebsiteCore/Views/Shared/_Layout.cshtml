@@ -9,10 +9,15 @@
     <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.min.css" />
     <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet">    @*font-family: 'IM Fell English SC', serif;*@
     <link rel="stylesheet" href="~/css/site.css" type="text/css" />
+
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/js/site.js"></script>
+
 </head>
 
 <body>
-    <div id="page-size"></div>
+
     <div id="not-footer-container">
         <div id="top-banner">
             <div id="name-title-container">
@@ -25,23 +30,17 @@
                 <a href="#">Contact</a>
             </div>
         </div>
-
+        <div id="page-size"></div>
         <div id="view-and-keith-picture-container">
             <div id="keith-layout-picture"></div>
             <div id="view-container">
                 @RenderBody()
             </div>
-            @*footer was here*@
         </div>
     </div>
     <footer>
         <p>Bill Sanders &copy; 2016</p>
     </footer>
-    
 
-    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/js/site.js"></script>
-    @RenderSection("scripts", false)
 </body>
 </html>

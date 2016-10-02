@@ -4,28 +4,75 @@
 
 
 #youtube-link {
+        display: -webkit-flex;
     display: flex;
+        -webkit-justify-content: center;
     justify-content: center;
     padding: 20px 0;
 }
 
 #snippet-container {
     color: white;
+        display: -webkit-flex;
     display: flex;
+        -webkit-flex-direction: row;
+        -webkit-justify-content: center;
     flex-direction: row;
     justify-content: center;
-
+    margin-bottom: 20px;
 }
 
 #snippet-container p {
     font-size: 3em;
     max-width: 300px;
+    margin-bottom: auto;
+}
+
+#snippet-container p:hover {
+    cursor: pointer;
+}
+
+#lyric-and-controls-container {
+    height: 400px;
+    width: 80%;
+    align-self: center;
+}
+
+#audio-and-exit {
+        display: -webkit-flex;
+        display: -ms-flexbox;
+    display: flex;
+        -webkit-flex-direction: row;
+        -webkit-justify-content: space-between;
+        -ms-flex-direction: row;
+        -ms-justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: brown;
+    height: 50px;
+    max-width: 100%;
+}
+
+#audio-and-exit audio {
+    max-width: 80%;
+    background-color: brown;
+}
+
+#exit-icon {
+    color: red;
+    font-size: 2em;
+    text-align: right;
+}
+
+#exit-icon:hover {
+    cursor: default;
 }
 
 #lyric-container {
-    min-height: 200px;
-    width: 80%;
+    overflow-y: auto;
     background-color: burlywood;
+    width: 100%;
+    height: 350px;
 }
 
 
@@ -40,9 +87,17 @@
         margin-left: 10%;
     }
 
-    #lyric-container {
+    #lyric-and-controls-container {
         width: 500px;
         height: 100%;
+    }
+
+    #lyric-container {
+        height: calc(100% - 50px);
+    }
+
+    #snippet-container {
+        margin-bottom: auto;
     }
 }
 
@@ -58,6 +113,9 @@
     
     #view-container {
         margin-left: 0;
+            -webkit-flex-direction: row;
+            -webkit-flex-grow: 1;
+            -webkit-justify-content: space-around;
         flex-direction: row;
         flex-grow: 1;
         justify-content: space-around;

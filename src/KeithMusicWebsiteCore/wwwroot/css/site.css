@@ -19,6 +19,10 @@ a:hover {
     text-decoration: none;
 }
 
+html {
+    min-height: 100vh;
+}
+
 body {
     min-height: 100vh;
     background-color: #00331A;
@@ -30,16 +34,23 @@ body {
 }
 
 #view-container {
+        display: -webkit-flex;
     display: flex;
+        -webkit-flex-direction: column;
     flex-direction: column;
+    position: relative;
+    min-height: calc(100%);
 }
 
 footer {
+        display: -webkit-flex;
     display: flex;
+        -webkit-justify-content: flex-end;
+        -webkit-flex-direction: column;
+    justify-content: flex-end;
     flex-direction: column;
     color: #CBD1D4;
     padding: 0 20px;
-    justify-content: flex-end;
     position: absolute;
     bottom: 0;
     left: 0;
@@ -60,10 +71,12 @@ footer {
 
 
 #view-and-keith-picture-container {
+        display: -webkit-flex;
     display: flex;
+        -webkit-flex-direction: column;
     flex-direction: column;
-    width: 100%;
-    height: auto; 
+    width: 100%; 
+    min-height: 100%;
     position: relative;
 }
 
@@ -76,13 +89,19 @@ footer {
     background-position: center;
     background-size: cover;
     font-family: 'IM Fell English SC', serif;
+        display: -webkit-flex;
     display: flex; 
+        -webkit-flex-direction: column;
+        -webkit-align-items: center;
     flex-direction: column;
     align-items: center;
 }
 
 #name-title-container {
+        display: -webkit-inline-flex;
     display: inline-flex;
+        -webkit-flex-direction: column;
+        -webkit-align-items: center;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
@@ -159,6 +178,9 @@ footer {
     }
 
     #top-banner {
+            -webkit-flex-direction: row;
+            -webkit-justify-content: space-between;
+            -webkit-align-items: flex-start;
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
@@ -169,6 +191,7 @@ footer {
     }
 
     #navigation-container {
+            -webkit-flex-direction: row;
         flex-direction: row;
         margin-right: 5%;
     }
@@ -186,16 +209,19 @@ footer {
     }
 
     #view-and-keith-picture-container {
+            -webkit-flex-direction: row;
         flex-direction: row;
     }
 
     .navigation-selectors-container {
+            -webkit-justify-content: space-around;
         justify-content: space-around;
         font-size: 1.5em;
     }
 
     footer {
         width: 100%;
+            -webkit-flex-direction: row;
         flex-direction: row;
     }
 }
