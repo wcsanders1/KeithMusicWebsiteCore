@@ -13,15 +13,20 @@ function SetHeightViewaAndPicture() {
     var $keithLayoutPicture = $("#keith-layout-picture");
     var $containerHeight;
 
-    $bodyHeight = $("body").height();
-    $topBannerHeight = $("#top-banner").height();
-    $containerHeight = $bodyHeight - ($topBannerHeight);
-    $viewAndKeithPictureContainer.height($containerHeight);
+    if (pageSize >= 2) {
+        $bodyHeight = $("body").height();
+        $topBannerHeight = $("#top-banner").height();
+        $containerHeight = $bodyHeight - ($topBannerHeight);
+        $viewAndKeithPictureContainer.height($containerHeight);
 
-    if (pageSize >= 2 && !lyricsShowing) {
-        $keithLayoutPicture.show();
+        if (!lyricsShowing) {
+            $keithLayoutPicture.show();
+        }
+    } else {
+        $viewAndKeithPictureContainer.css("height", "initial");
     }
 }
+
 
 
 
