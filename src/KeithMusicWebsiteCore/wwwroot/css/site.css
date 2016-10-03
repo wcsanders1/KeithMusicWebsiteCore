@@ -40,6 +40,8 @@ body {
     flex-direction: column;
     position: relative;
     min-height: 100%;
+    flex: 0;
+    -ms-flex: none;
 }
 
 footer {
@@ -132,6 +134,7 @@ footer {
     margin: 15px 0;
     font-size: 1.75em;
     text-decoration: none;
+    color: #A88E43;
 }
 
 .navigation-selectors-container {  
@@ -140,24 +143,24 @@ footer {
     text-align: center;
 }
 
-.navigation-selectors-container li {
+/*.navigation-selectors-container li {
     list-style: none;
     padding: 20px 0;
-}
+}*/
 
-.navigation-selectors-container li a {
+/*.navigation-selectors-container li a {
     font-size: 2em;
     font-family: Idion, sans-serif;
     color: #800000;
     padding: 20px;
     text-decoration: none;
-}
+}*/
 
-.navigation-selectors-container a:hover {
+/*.navigation-selectors-container a:hover {
     cursor: pointer;
     color: rgba(25,142,181,1);
     background-color: rgba(25,142,181,.25);
-}
+}*/
 
 .navigation-selector {
 

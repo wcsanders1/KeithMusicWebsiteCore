@@ -8,21 +8,28 @@ var lyricsShowing = false;
 
 function SetHeightViewaAndPicture() {
     var $topBannerHeight;
-    var $bodyHeight;
+    var $windowHeight;
     var $viewAndKeithPictureContainer = $("#view-and-keith-picture-container");
     var $keithLayoutPicture = $("#keith-layout-picture");
+    var $lyricContainer = $("#lyric-container");
+    var $audioAndExit = $("#audio-and-exit");
     var $containerHeight;
 
     if (pageSize >= 2) {
-        $bodyHeight = $("body").height();
+        $windowHeight = $(window).height();
         $topBannerHeight = $("#top-banner").height();
-        $containerHeight = $bodyHeight - ($topBannerHeight);
+        $containerHeight = $windowHeight - ($topBannerHeight);
         $viewAndKeithPictureContainer.height($containerHeight);
 
         if (!lyricsShowing) {
             $keithLayoutPicture.show();
+        } else {           
+            $lyricContainer.height($viewAndKeithPictureContainer.height() - $audioAndExit.height());
         }
     } else {
+        if (lyricsShowing) {
+            $lyricContainer.height(350);
+        }
         $viewAndKeithPictureContainer.css("height", "initial");
     }
 }
@@ -39,11 +46,12 @@ $(document).ready(function () {
 
 $(window).resize(function () {
     pageSize = $("#page-size").css("z-index");
-    SetHeightViewaAndPicture();
 
     if (lyricsShowing) {
         PositionLyrics();
     }
+
+    SetHeightViewaAndPicture();
 });
 
 
