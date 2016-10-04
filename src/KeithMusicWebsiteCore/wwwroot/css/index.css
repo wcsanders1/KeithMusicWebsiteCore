@@ -8,8 +8,8 @@
     display: flex;
         -webkit-justify-content: center;
     justify-content: center;
-    margin-top: 20px;
-    margin-bottom: 50px;
+    margin-top: 40px;
+    margin-bottom: 100px;
 }
 
 #snippet-container {
@@ -49,17 +49,15 @@
 #lyric-and-controls-container {
     height: 400px;
     width: 80%;
+        -webkit-align-self: center;
     align-self: center;
 }
 
 #audio-and-exit {
         display: -webkit-flex;
-        display: -ms-flexbox;
     display: flex;
         -webkit-flex-direction: row;
         -webkit-justify-content: space-between;
-        -ms-flex-direction: row;
-        -ms-justify-content: space-between;
     flex-direction: row;
     justify-content: space-between;
     background-color: black;

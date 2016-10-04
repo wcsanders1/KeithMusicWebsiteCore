@@ -28,9 +28,9 @@
                 <h2>Singer | Songwriter</h2>
             </div>
             <div id="navigation-container">
-                <a href="#">Home</a>
-                <a href="#">Music</a>
-                <a href="#">Contact</a>
+                <a href="@Url.Action("Index")">Home</a>
+                <a href="@Url.Action("Music")">Music</a>
+                <a href="@Url.Action("Contact")">Contact</a>
             </div>
         </div>
         <div id="page-size"></div>
@@ -42,7 +42,10 @@
         </div>
     </div>
     <footer>
-        <p>Bill Sanders &copy; 2016</p>
+        <div id="footer-name-email-container">
+            <p>Bill Sanders &copy; 2016</p>
+            <p>william.sanders.dev@gmail.com</p>
+        </div>
     </footer>
 
 </body>

@@ -108,8 +108,6 @@ function PositionLyrics() {
         isPlaying = true;
     }
 
-    console.log(audio.duration);
-
     if (pageSize == 1) {
         $snippetContainer.after($lyricAndControlsContainer);
     }

@@ -2,6 +2,7 @@
 var pageSize = $("#page-size").css("z-index");
 var songsDB;
 var lyricsShowing = false;
+var initialViewContainerHeight;
 
 
 /************   SETS HEIGHT OF #view-and-keith-picture-container IN LAYOUT   ******************************/
@@ -30,7 +31,12 @@ function SetHeightViewaAndPicture() {
         if (lyricsShowing) {
             $lyricContainer.height(350);
         }
-        $viewAndKeithPictureContainer.css("height", "initial");
+        $viewAndKeithPictureContainer.height("auto");
+        $("#not-footer-container").height("auto");
+        $("#snippet-container").height("auto");
+        $viewAndKeithPictureContainer.height("initial");
+        $("#not-footer-container").height("initial");
+        $("#snippet-container").height("initial");
     }
 }
 

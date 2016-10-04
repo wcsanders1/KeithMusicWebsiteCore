@@ -21,6 +21,7 @@ a:hover {
 
 html {
     min-height: 100vh;
+    position: relative;
 }
 
 body {
@@ -31,6 +32,7 @@ body {
 
 #not-footer-container {
     min-height: 95vh;
+    position: relative;
 }
 
 #view-container {
@@ -39,9 +41,8 @@ body {
         -webkit-flex-direction: column;
     flex-direction: column;
     position: relative;
-    min-height: 100%;
-    flex: 0;
-    -ms-flex: none;
+        -webkit-flex: none;
+    flex: none;
 }
 
 footer {
@@ -52,11 +53,26 @@ footer {
     justify-content: flex-end;
     flex-direction: column;
     color: #CBD1D4;
+    background-color: black;
     padding: 0 20px;
     position: absolute;
     bottom: 0;
     left: 0;
     height: 5vh;
+    min-height: 50px;
+    width: 100%;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1.2em;
+}
+
+#footer-name-email-container {
+    display: flex;
+    flex-direction: column;
+}
+
+#footer-name-email-container p {
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -125,7 +141,10 @@ footer {
 
 #navigation-container {
     margin-top: 30px;
+        display: -webkit-flex;
     display: inline-flex;
+        -webkit-flex-direction: column;
+        -webkit-align-items: center;
     flex-direction: column;
     align-items: center;
 }
@@ -138,32 +157,12 @@ footer {
 }
 
 .navigation-selectors-container {  
+        display: -webkit-flex;
     display: flex;
+        -webkit-flex-direction: column;
+        -webkit-text-align: center;
     flex-direction: column;
     text-align: center;
-}
-
-/*.navigation-selectors-container li {
-    list-style: none;
-    padding: 20px 0;
-}*/
-
-/*.navigation-selectors-container li a {
-    font-size: 2em;
-    font-family: Idion, sans-serif;
-    color: #800000;
-    padding: 20px;
-    text-decoration: none;
-}*/
-
-/*.navigation-selectors-container a:hover {
-    cursor: pointer;
-    color: rgba(25,142,181,1);
-    background-color: rgba(25,142,181,.25);
-}*/
-
-.navigation-selector {
-
 }
 
 
@@ -223,9 +222,12 @@ footer {
     }
 
     footer {
-        width: 100%;
             -webkit-flex-direction: row;
         flex-direction: row;
+        width: auto;
+        right: 0;
+        margin-left: 500px;
+        background: linear-gradient(to right, #00331A, black 15%);
     }
 }
 
