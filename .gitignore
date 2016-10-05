@@ -250,3 +250,9 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+/src/KeithMusicWebsiteCore/wwwroot/audio/Searchlight.ogg
+/src/KeithMusicWebsiteCore/wwwroot/audio/Searchlight.mp3
+/src/KeithMusicWebsiteCore/wwwroot/audio/LastTrain.ogg
+/src/KeithMusicWebsiteCore/wwwroot/audio/LastTrain.mp3
+/src/KeithMusicWebsiteCore/wwwroot/audio/Beholder.ogg
+/src/KeithMusicWebsiteCore/wwwroot/audio/Beholder.mp3

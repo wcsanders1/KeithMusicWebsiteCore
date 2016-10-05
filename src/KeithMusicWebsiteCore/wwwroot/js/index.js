@@ -44,11 +44,12 @@ function ShowLyrics() {
     var $viewAndKeithPictureContainer = $("#view-and-keith-picture-container");
     var $keithLayoutPicture = $("#keith-layout-picture");
     var $lyricContainer = $("<div id='lyric-container'></div>");
-    var song = songsDB[index].audioFile.toString();
+    var songMP3 = songsDB[index].audioFileMP3.toString();
+    var songOGG = songsDB[index].audioFileOGG.toString();
 
     var $exitIcon = $("<p id='exit-icon'>X</p>");
     $exitIcon.click(CloseLyricContainer);
-    var $audioAndExitDiv = $("<div id='audio-and-exit'><audio id='audio' controls><source id='snippet-song' src='" + song + "'/></audio></div>");
+    var $audioAndExitDiv = $("<div id='audio-and-exit'><audio id='audio' controls><source src='" + songMP3 + "' type='audio/mpeg'/><source src='" + songOGG + "' type='audio/ogg'/><p>Your browser does not support HTML5 audio.</p></audio></div>");
     $audioAndExitDiv.append($exitIcon);
 
     var $titleInLyrics = $("<p id='title-in-lyrics'>" + songsDB[index].title + "</p>");
