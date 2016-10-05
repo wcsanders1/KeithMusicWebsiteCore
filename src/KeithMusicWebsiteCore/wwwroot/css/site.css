@@ -186,6 +186,9 @@ footer {
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+        position: fixed;
+        height: 200px;
+        z-index: 1;
     }
 
     #name-title-container {
@@ -208,6 +211,8 @@ footer {
         background-size: cover;
         width: 500px;
         height: 100%;
+        position: fixed;
+        margin-top: 200px;
     }
 
     #view-and-keith-picture-container {
@@ -228,6 +233,7 @@ footer {
         right: 0;
         margin-left: 500px;
         background: linear-gradient(to right, #00331A, black 15%);
+        position: fixed;
     }
 }
 

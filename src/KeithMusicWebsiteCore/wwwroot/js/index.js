@@ -80,11 +80,14 @@ function CloseLyricContainer() {
     var $keithLayoutPicture = $("#keith-layout-picture");
 
     if (pageSize == 1) {
-        $lyricAndControlsContainer.empty().fadeOut("fast");
+        $lyricAndControlsContainer.fadeOut("fast", function () {
+            $lyricAndControlsContainer.empty();
+        });
     }
 
     if (pageSize >= 2) {
-        $lyricAndControlsContainer.empty().fadeOut("fast", function () {
+        $lyricAndControlsContainer.fadeOut("fast", function () {
+            $lyricAndControlsContainer.empty();
             $keithLayoutPicture.fadeIn("fast");
         });
     }
