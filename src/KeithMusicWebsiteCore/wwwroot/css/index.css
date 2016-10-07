@@ -109,6 +109,12 @@
     margin-bottom: 20px;
 }
 
+#album-and-headline-container h2 {
+    font-family: 'IM Fell English SC', serif;
+    color: #922B21;
+    font-size: 3em;
+}
+
 #album-container {
         display: -webkit-flex;
     display: flex;
@@ -130,7 +136,7 @@
     760px and UP     (PAGE-SIZE 2)
 ****************************************************************************************************************/
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 860px) {
     
     #view-container {
         margin-left: 500px;
@@ -195,5 +201,13 @@
         flex-direction: row;
         flex-grow: 1;
         justify-content: space-around;
+    }
+
+    #snippet-lyric-album-container {
+
+    }
+
+    #youtube-link {
+
     }
 }
