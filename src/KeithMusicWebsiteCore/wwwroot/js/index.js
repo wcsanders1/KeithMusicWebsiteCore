@@ -1,10 +1,12 @@
-﻿/***********************************   VARIABLES   ***************************************************************/
+﻿
+
+/***********************************   VARIABLES   ***************************************************************/
 
 var $lyricAndControlsContainer = $("#lyric-and-controls-container");
+var youTubeLinks;
+var currentYouTubeLink;
+
 $lyricAndControlsContainer.hide();
-
-
-
 /************************************   AJAX   ********************************************/
 
 /**********   GetLoopSongs()   *********************/
@@ -46,7 +48,9 @@ function GetYouTubeLinks() {
 }
 
 function OnSuccessYouTubeLinks(data) {
-    FillYouTubeContainer(data);
+    youTubeLinks = data;
+    FillYouTubeContainer(0);
+    currentYouTubeLink = 0;
 }
 
 function OnErrorYouTubeLinks(data) {
@@ -188,14 +192,68 @@ function PositionLyrics() {
 
 /****************************   FillYouTubeContainer()   ***********************************/
 
-function FillYouTubeContainer(data) {
-    var index = 0;
+function FillYouTubeContainer(index) {
     var $youtTubeLinkHeadline = $("#youtube-link-headline");
     var $youTubeLinkUrl = $("#youtube-link-url");
     var $youTubeLinkCaption = $("#youtube-link-caption");
 
-    $youtTubeLinkHeadline.html(data[index].headline);
-    $youTubeLinkUrl.attr("src", data[index].url);
-    $youTubeLinkCaption.html(data[index].caption);
-
+    $youtTubeLinkHeadline.html(youTubeLinks[index].headline);
+    $youTubeLinkUrl.attr("src", youTubeLinks[index].url);
+    $youTubeLinkCaption.html(youTubeLinks[index].caption);
 }
+
+
+/************************   SLIDE YOUTUBE LINKS   ******************************************/
+$("#youtube-link-left-button").click(function () {
+    SlideYouTubeLinks("left");    
+});
+
+$("#youtube-link-right-button").click(function () {
+    SlideYouTubeLinks("right");
+});
+
+function SlideYouTubeLinks(direction) {
+    var $youTubeSlider = $("#youtube-slider");
+
+
+
+    if (direction == "left") {
+        if (currentYouTubeLink == 0) {
+            currentYouTubeLink = youTubeLinks.length - 1;
+        } else {
+            currentYouTubeLink--;
+        }
+
+        $youTubeSlider.animate({ left: "-500px" }, function () {
+            $youTubeSlider.css("visibility", "hidden");
+            FillYouTubeContainer(currentYouTubeLink);
+        });
+
+        $youTubeSlider.animate({ left: "500px" }, "fast", function () {
+            $youTubeSlider.css("visibility", "visible");
+            $("#youtube-slider").animate({ left: "-=500px" });
+        });
+    } else {
+        if (currentYouTubeLink >= (youTubeLinks.length - 1)) {
+            currentYouTubeLink = 0;
+        } else {
+            currentYouTubeLink++;
+        }
+
+        $youTubeSlider.animate({ left: "500px" }, function () {
+            $youTubeSlider.css("visibility", "hidden");
+            FillYouTubeContainer(currentYouTubeLink);
+        });
+
+        $youTubeSlider.animate({ left: "-500px" }, "fast", function () {
+            $youTubeSlider.css("visibility", "visible");
+            $("#youtube-slider").animate({ left: "+=500px" });
+        });
+    }
+}
+
+
+/***********************   ON PAGE UNLOAD   ************************************/
+$(window).unload(function () {
+    //bring up popup window with audio to continue playing song if playing and new page loading
+});
