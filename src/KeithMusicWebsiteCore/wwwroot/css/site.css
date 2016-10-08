@@ -14,9 +14,17 @@
     GENERAL
 ********************************************/
 
+.italics {
+    font-style: italic;
+}
+
 a,
 a:hover {
     text-decoration: none;
+}
+
+h2 {
+    margin: 0;
 }
 
 html {
@@ -153,7 +161,7 @@ footer {
     margin: 15px 0;
     font-size: 1.75em;
     text-decoration: none;
-    color: #A88E43;
+    color: #FFFFCC;
 }
 
 .navigation-selectors-container {  
@@ -243,7 +251,7 @@ footer {
 ****************************************************************************************************************/
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1400px) {
     #page-size {
         z-index: 3;
     }

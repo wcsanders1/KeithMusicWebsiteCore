@@ -47,7 +47,7 @@ function SetHeightViewaAndPicture() {
 $(document).ready(function () {
     pageSize = $("#page-size").css("z-index");
     SetHeightViewaAndPicture();
-    CallDatabase();
+    //CallDatabase();
 });
 
 $(window).resize(function () {
@@ -62,28 +62,28 @@ $(window).resize(function () {
 
 
 
-/***********************   AJAX   *****************************/
+///***********************   AJAX   *****************************/
 
-function CallDatabase() {
-    $.ajax({
-        async: false,
-        type: "GET",
-        url: "/Data/GetAllSongs",
-        data: "{}",
-        dataType: "json",
-        success: OnSuccess,
-        error: OnError
-    });
-}
+//function CallDatabase() {
+//    $.ajax({
+//        async: false,
+//        type: "GET",
+//        url: "/Data/GetAllSongs",
+//        data: "{}",
+//        dataType: "json",
+//        success: OnSuccess,
+//        error: OnError
+//    });
+//}
 
-function OnSuccess(data) {
-    songsDB = data;
-    LoopSnippets();
-}
+//function OnSuccess(data) {
+//    songsDB = data;
+//    LoopSnippets();
+//}
 
-function OnError(data) {
+//function OnError(data) {
 
-}
+//}
 
 
 /************   AJAX: SHOWS LYRIC SNIPPETS   **************************************************/

@@ -1,5 +1,63 @@
-﻿var $lyricAndControlsContainer = $("#lyric-and-controls-container");
+﻿/***********************************   VARIABLES   ***************************************************************/
+
+var $lyricAndControlsContainer = $("#lyric-and-controls-container");
 $lyricAndControlsContainer.hide();
+
+
+
+/************************************   AJAX   ********************************************/
+
+/**********   GetLoopSongs()   *********************/
+
+function GetLoopSongs() {
+    $.ajax({
+        async: true,
+        type: "GET",
+        url: "/Data/GetLoopSongs",
+        data: "{}",
+        dataType: "json",
+        success: OnSuccessLoopSongs,
+        error: OnErrorLoopSongs
+    });
+}
+
+function OnSuccessLoopSongs(data) {
+    songsDB = data;
+    LoopSnippets();
+}
+
+function OnErrorLoopSongs(data) {
+
+}
+
+
+/**********   GetYouTubeLinks()   ******************/
+
+function GetYouTubeLinks() {
+    $.ajax({
+        async: true,
+        type: "GET",
+        url: "/Data/GetYouTubeLinks",
+        data: "{}",
+        dataType: "json",
+        success: OnSuccessYouTubeLinks,
+        error: OnErrorYouTubeLinks
+    });
+}
+
+function OnSuccessYouTubeLinks(data) {
+    FillYouTubeContainer(data);
+}
+
+function OnErrorYouTubeLinks(data) {
+
+}
+
+$(document).ready(function () {
+    GetLoopSongs();
+    GetYouTubeLinks();
+});
+
 
 
 /***********************************   LYRIC AND SONG FUNCTIONS   **********************************************/
@@ -124,4 +182,20 @@ function PositionLyrics() {
     if (isPlaying) {
         audio.play();
     }
+}
+
+
+
+/****************************   FillYouTubeContainer()   ***********************************/
+
+function FillYouTubeContainer(data) {
+    var index = 0;
+    var $youtTubeLinkHeadline = $("#youtube-link-headline");
+    var $youTubeLinkUrl = $("#youtube-link-url");
+    var $youTubeLinkCaption = $("#youtube-link-caption");
+
+    $youtTubeLinkHeadline.html(data[index].headline);
+    $youTubeLinkUrl.attr("src", data[index].url);
+    $youTubeLinkCaption.html(data[index].caption);
+
 }

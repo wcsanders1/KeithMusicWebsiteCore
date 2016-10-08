@@ -2,14 +2,10 @@
     CELLPHONE SIZE    (PAGE-SIZE 1)
 *************************************************************************************************************************/
 
-
-#youtube-link {
-        display: -webkit-flex;
+#view-container {
     display: flex;
-        -webkit-justify-content: center;
-    justify-content: center;
-    margin-top: 40px;
-    margin-bottom: 100px;
+    flex-direction: column;
+    align-items: center;
 }
 
 #snippet-lyric-album-container {
@@ -17,6 +13,7 @@
     display: flex;
         -webkit-flex-direction: column;
     flex-direction: column;
+    width: 300px;
 }
 
 #snippet-container {
@@ -29,17 +26,18 @@
     justify-content: center;
     margin-bottom: 20px;
     margin-top: 50px;
+    width: 300px;
 }
 
 #snippet-container p {
     max-width: 300px;
     margin-bottom: auto;
-    color: #435DA8;
 }
 
 #snippet-lyric {
     font-size: 1.75em;
     font-family: 'Kalam', cursive;
+    color: #435DA8;
 }
 
 #snippet-title {
@@ -47,6 +45,8 @@
     text-align: right;
     font-family: 'IM Fell English SC', serif;
     margin-top: 5px;
+    color: #996633;
+    width: 300px;
 }
 
 #snippet-container p:hover {
@@ -55,7 +55,8 @@
 
 #lyric-and-controls-container {
     height: 400px;
-    width: 80%;
+    /*width: 80%;*/
+    width: 300px;
         -webkit-align-self: center;
     align-self: center;
 }
@@ -88,16 +89,16 @@
 
 #lyric-container {
     overflow-y: auto;
-    background-color: #DEAF7C;
+    background-color: #D9D9D9;
     width: 100%;
     height: 350px;
-    font-size: 1.5em;
+    font-size: 1em;
     padding: 0 10px;
     font-family: 'Special Elite', cursive;
 }
 
 #title-in-lyrics {
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 #album-and-headline-container {
@@ -106,12 +107,13 @@
         -webkit-flex-direction: column;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 40px 0;
+    width: 300px;
 }
 
 #album-and-headline-container h2 {
     font-family: 'IM Fell English SC', serif;
-    color: #922B21;
+    color: #996633;
     font-size: 3em;
 }
 
@@ -122,12 +124,42 @@
     flex-direction: row;
         -webkit-justify-content: center;
     justify-content: center;
+    margin-top: 10px;
 }
 
 #album-container img {
     width: 100px;
     height: 100px;
     margin: 20px;
+}
+
+#youtube-link {
+        display: -webkit-flex;
+    display: flex;
+        -webkit-flex-direction: column;
+    flex-direction: column;
+        -webkit-align-items: center;
+        -webkit-align-self: center;
+    align-items: center;
+    align-self: center;
+    margin-top: 40px;
+    margin-bottom: 100px !important;
+    max-width: 300px;
+}
+
+#youtube-link-url {
+    margin: 10px 0;
+}
+
+#youtube-link-headline,
+#youtube-link-caption {
+    font-family: 'IM Fell English SC', serif;
+    color: #996633;
+    max-width: inherit;
+}
+
+#youtube-link-caption {
+    font-size: 1.5em;
 }
 
 
@@ -155,7 +187,11 @@
     }
 
     #lyric-container {
+        font-size: 1.5em;
+    }
 
+    #title-in-lyrics {
+        font-size: 2em;
     }
 
     #snippet-lyric-album-container {
@@ -169,7 +205,7 @@
     }
 
     #album-and-headline-container {
-        margin-top: 20px;
+
     }
 
     #youtube-link {
@@ -179,35 +215,49 @@
         flex-shrink: 0;
     }
 
-    #youtube-link iframe {
+    #youtube-link-caption {
         margin-bottom: 100px;
     }
+
 }
 
 
 
 
 /****************************************************************************************************************
-    1200px and UP       (PAGE-SIZE 3)
+    1400px and UP       (PAGE-SIZE 3)
 ****************************************************************************************************************/
 
 
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1400px){
     
     #view-container {
             -webkit-flex-direction: row;
             -webkit-flex-grow: 1;
-            -webkit-justify-content: space-around;
+            /*-webkit-justify-content: space-around;*/
         flex-direction: row;
         flex-grow: 1;
-        justify-content: space-around;
+        /*margin-left: calc(500px + 2.5%);
+        margin-right: 2.5%;*/
+        /*justify-content: space-around;*/
+
     }
 
     #snippet-lyric-album-container {
-
+        margin-left: 10%;
+        align-self: flex-start;
     }
 
     #youtube-link {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 0;
+        align-self: flex-start;
+        max-width: 500px;
+    }
 
+    #youtube-link-url {
+        width: 500px;
+        height: 300px;
     }
 }
