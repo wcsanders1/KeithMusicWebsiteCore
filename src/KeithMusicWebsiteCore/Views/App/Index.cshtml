@@ -1,12 +1,13 @@
-﻿@{ 
+﻿@{
     ViewBag.Title = "Home Page";
 }
-
 <link rel="stylesheet" type="text/css" href="~/css/index.css" />
 
 <div id="snippet-lyric-album-container">
     <div id="snippet-container"></div>
-    <button id="lyric-button">Show Song List</button>
+    <div id="lyric-button-container">
+        <p id="lyric-button">Show Song List</p>
+    </div>
     <div id="lyric-and-controls-container"></div>
     <div id="album-and-headline-container">
         <h2 id="album-container-headline">Albums</h2>
@@ -32,7 +33,6 @@
         </div>
     </div>
 </div>
-
 <div id="youtube-link">
     <div id="youtube-video-container">
         <div id="youtube-slider">
@@ -47,5 +47,8 @@
     </div>
 </div>
 
+<script>
+    var page = "index";
+</script>
 
 <script type="text/javascript" src="~/js/index.js"></script>

@@ -31,6 +31,13 @@ namespace KeithMusicWebsiteCore.Models
                     Headline = "Epsom, New Hampshire",
                     Url = "https://www.youtube.com/embed/nu9XO4fZgDs",
                     Caption = "Playing <span class='italics'>Eulum</span> at home"
+                },
+                new YouTubeLink
+                {
+                    Id = 3,
+                    Headline = "Epsom, New Hampshire",
+                    Url = "https://www.youtube.com/embed/oey_FC5Qq-E",
+                    Caption = "Playing <span class='italics'>Little Lie</span> at home"
                 }
             };
             return youTubeLinks;

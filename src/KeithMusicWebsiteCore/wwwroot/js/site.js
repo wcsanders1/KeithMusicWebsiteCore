@@ -47,7 +47,14 @@ function SetHeightViewaAndPicture() {
 $(document).ready(function () {
     pageSize = $("#page-size").css("z-index");
     SetHeightViewaAndPicture();
-    //CallDatabase();
+
+    if (page == "index") {
+        $("#index").addClass("current-page");
+    } else if (page == "news") {
+        $("#news").addClass("current-page");
+    } else if (page == "about") {
+        $("#about").addClass("current-page");
+    }
 });
 
 $(window).resize(function () {

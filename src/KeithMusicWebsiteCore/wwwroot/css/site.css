@@ -57,9 +57,10 @@ body {
 footer {
         display: -webkit-flex;
     display: flex;
-        -webkit-justify-content: flex-end;
+        -webkit-justify-content: space-between;
         -webkit-flex-direction: column;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     flex-direction: column;
     color: #CBD1D4;
     background-color: black;
@@ -67,12 +68,17 @@ footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 5vh;
-    min-height: 50px;
+    min-height: 5vh;
+
     width: 100%;
     font-family: 'IM Fell English SC', serif;
-    font-size: 1.2em;
+    font-size: 1em;
 }
+
+#icon-container {
+
+}
+
 
 #footer-name-email-container {
     display: flex;
@@ -82,6 +88,12 @@ footer {
 #footer-name-email-container p {
     margin: 0;
     padding: 0;
+}
+
+#icon-container img {
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
 }
 
 
@@ -152,17 +164,25 @@ footer {
     margin-top: 30px;
         display: -webkit-flex;
     display: inline-flex;
-        -webkit-flex-direction: column;
+        -webkit-flex-direction: row;
         -webkit-align-items: center;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
 #navigation-container a {
-    margin: 15px 0;
+    margin: 15px 15px;
     font-size: 1.75em;
     text-decoration: none;
     color: #FFFFCC;
+}
+
+#navigation-container a:hover {
+    opacity: .5;
+}
+
+#navigation-container .current-page {
+    color: #CC9900;
 }
 
 .navigation-selectors-container {  
@@ -244,6 +264,10 @@ footer {
         background: linear-gradient(to right, #00001A, black 15%);
         position: fixed;
     }
+
+    #footer-name-email-container {
+        order: 1;
+    }
 }
 
 
@@ -255,5 +279,15 @@ footer {
 @media screen and (min-width: 1450px) {
     #page-size {
         z-index: 3;
+    }
+
+    footer {
+        font-size: 1.25em;
+    }
+
+    #icon-container img {
+        width: 35px;
+        height: 35px;
+        margin: 0 15px;
     }
 }

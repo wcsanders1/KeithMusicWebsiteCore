@@ -2,10 +2,14 @@
 
 /***********************************   VARIABLES   ***************************************************************/
 
-var $lyricAndControlsContainer = $("#lyric-and-controls-container");
-var youTubeLinks;
-var currentYouTubeLink;
+var
+    $lyricAndControlsContainer = $("#lyric-and-controls-container"),
+    youTubeLinks,
+    currentYouTubeLink,
+    interval,
+    songListShowing = false;
 
+/***********************************************************************************/
 $lyricAndControlsContainer.hide();
 /************************************   AJAX   ********************************************/
 
@@ -24,7 +28,7 @@ function GetLoopSongs() {
 }
 
 function OnSuccessLoopSongs(data) {
-    songsDB = data;
+    songsDB = data.sort(function (a, b) { return a.title.localeCompare(b.title); });
     LoopSnippets(true);
 }
 
@@ -69,12 +73,12 @@ $(document).ready(function () {
 function LoopSnippets(loop) {
     var index = 0;
     var $snippetContainer = $("#snippet-container");
-    var interval;
 
     var loopSnippets = function () {
 
         $snippetContainer.fadeOut("slow", function () {
             $snippetContainer.empty();
+            $snippetContainer.css("max-height", "initial");
             var $lyric;
             var $title;
             var $newSnippet = $("<div></div>");
@@ -98,11 +102,9 @@ function LoopSnippets(loop) {
 
     if (loop) {
         loopSnippets();
-        interval = setInterval(function () { loopSnippets(); }, 8000);
-        console.log("looping");
+        interval = setInterval(loopSnippets, 8000);
     } else {
         clearInterval(interval);
-        console.log("cleared");
     }
 }
 
@@ -120,12 +122,33 @@ function ShowSongList() {
     $songListContainer.append($songList);
 
     LoopSnippets(false);
-    $snippetContainer.empty();
-    $snippetContainer.append($songListContainer);
+
+    $snippetContainer.fadeOut("fast", function () {
+        $snippetContainer.empty();
+        $snippetContainer.css("max-height", "300px");
+        $snippetContainer.css("overflow-y", "auto");
+        $snippetContainer.append($songListContainer);
+        $snippetContainer.fadeIn("fast");
+    });
+
 }
 
 $("#lyric-button").click(function () {
-    ShowSongList();
+    if ($("#snippet-container").css("opacity") < 1) {
+        return;
+    }
+
+    if (!songListShowing) {
+        ShowSongList();
+        songListShowing = true;
+        $(this).text("Hide Song List");
+    } else {
+        $("#snippet-container").fadeOut("fast", function () {
+            LoopSnippets(true);
+            songListShowing = false;
+        });
+        $(this).text("Show Song List");
+    }
 });
 
 function ShowLyrics() {
@@ -152,7 +175,7 @@ function ShowLyrics() {
     $lyricAndControlsContainer.append($lyricContainer);
 
     if (pageSize == 1) {
-        $snippetContainer.after($lyricAndControlsContainer);
+        $("#lyric-button").after($lyricAndControlsContainer);
         $lyricAndControlsContainer.fadeIn("fast");
     }
 
@@ -203,7 +226,7 @@ function PositionLyrics() {
     }
 
     if (pageSize == 1) {
-        $snippetContainer.after($lyricAndControlsContainer);
+        $("#lyric-button").after($lyricAndControlsContainer);
     }
 
     if (pageSize >= 2) {

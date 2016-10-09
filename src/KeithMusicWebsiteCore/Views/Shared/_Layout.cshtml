@@ -20,7 +20,7 @@
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
 
     <script type="text/javascript" src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="~/js/site.js"></script>
+
 
 </head>
 
@@ -33,9 +33,9 @@
                 <h2>Singer | Songwriter</h2>
             </div>
             <div id="navigation-container">
-                <a href="@Url.Action("Index")">Music</a>
-                <a href="@Url.Action("News")">News</a>
-                <a href="@Url.Action("About")">About</a>
+                <a id="index" href="@Url.Action("Index")">Music</a>
+                <a id="news" href="@Url.Action("News")">News</a>
+                <a id="about" href="@Url.Action("About")">About</a>
             </div>
         </div>
         <div id="page-size"></div>
@@ -47,11 +47,17 @@
         </div>
     </div>
     <footer>
+        <div id="icon-container">
+            <a href="https://www.youtube.com/user/soursweettooth/videos" target="_blank"><img src="~/img/YouTubeIcon.png" alt="YouTube" title="YouTube"/></a>
+            <a href="https://www.facebook.com/soursweettooth/" target="_blank"><img src="~/img/FacebookIcon.png" alt="Facebook" title="Facebook"/></a>
+            <a href="https://soundcloud.com/sour-sweet-tooth" target="_blank"><img src="~/img/SoundCloudIcon.png" alt="Soundcloud" title="Soundcloud"/></a>
+        </div>
         <div id="footer-name-email-container">
-            <p>Bill Sanders &copy; 2016</p>
+            <p>Site by Bill Sanders &copy; 2016</p>
             <p>william.sanders.dev@gmail.com</p>
         </div>
     </footer>
 
+    <script type="text/javascript" src="~/js/site.js"></script>
 </body>
 </html>

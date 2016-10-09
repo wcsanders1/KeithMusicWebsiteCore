@@ -53,6 +53,46 @@
     cursor: pointer;
 }
 
+#song-list-container {
+    width: 100%;
+    height: 100%;
+    border: 3px solid #422923;
+    background-color: #A68244;
+}
+
+#song-list-container ul {
+    padding: 5px 10px;
+}
+
+#song-list-container ul li {
+    font-family: 'Special Elite', cursive;
+    font-size: 1.5em;
+    color: black;
+    list-style-type: none;
+    text-align: left;
+    border-bottom: 1px dotted black;
+}
+
+#song-list-container ul li:hover {
+    cursor: pointer;
+}
+
+#lyric-button-container {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+#lyric-button {
+    font-family: 'IM Fell English SC', serif;
+    font-size: 1em;
+    color: #FFFFCC;
+}
+
+#lyric-button:hover {
+    cursor: pointer;
+}
+
 #lyric-and-controls-container {
     height: 400px;
     /*width: 80%;*/
@@ -95,6 +135,7 @@
     font-size: 1em;
     padding: 0 10px;
     font-family: 'Special Elite', cursive;
+    text-align: left;
 }
 
 #title-in-lyrics {
@@ -268,19 +309,18 @@
     #view-container {
             -webkit-flex-direction: row;
             -webkit-flex-grow: 1;
-            /*-webkit-justify-content: space-around;*/
         flex-direction: row;
-        flex-grow: 1;
-        /*margin-left: calc(500px + 2.5%);
-        margin-right: 2.5%;*/
-        /*justify-content: space-around;*/
-
     }
 
     #snippet-lyric-album-container {
         margin-left: 10%;
         align-self: flex-start;
         height: 90%;
+        flex-shrink: 0;
+    }
+
+    #snippet-container {
+        flex-shrink: 0;
     }
 
     #youtube-link {

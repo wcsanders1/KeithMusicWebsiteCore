@@ -37,6 +37,15 @@ namespace KeithMusicWebsiteCore.Models
                     AudioFileOGG = "/audio/Beholder.ogg",
                     Lyrics = "Was the black bird hanging around your window?<br>The melody that made you turn under your sleep.<br>And in that place I did meet you at the crossroads,<br>and in that land you took the hook and shook my hand.<br>Now every time you speak to curse the chains that bind you,<br>well I wouldn't mind if you just used my name instead.<br>Because love is blind, but I'm the eye of the beholder.<br>And I come in nines, and every low road runds my way.<br>So run my way.<br>Take what you can get.<br>Don't drive such a hard bargain.<br>Ah, don't you forget?<br>What is hard gets harder.<br>Here, let me light your cigarette<br>and loosen your blindfold.",
                     Snippet = "And in that place, I did meet you at the crossroads,<br>and in that land, you took the hook and shook my hand."
+                },
+                new Song
+                {
+                    Id = 3,
+                    Title = "Live Alone",
+                    AudioFileMP3 = "/audio/LiveAlone.mp3",
+                    AudioFileOGG = "/audio/LiveAlone.ogg",
+                    Lyrics = "Going to live by myself alone.<br>Take my visitors in a courtyard made of stone.<br>And when my tongue ties I won't untie it anymore.<br>Just going to live by myself alone.<br>And when the evening wind does blow<br>I'll take the low road.<br>And when the morning sun rise cold<br>I'll take the low road.<br>And kill it so it don't grow anymore.<br>Kill it.<br>Going to live by myself alone.<br>Practice magic on the roses and thorns.<br>And sing my love songs for the loneliest of ghosts.<br>When I live by myself alone.<br>And when the evening wind does blow<br>I'll take the low road.<br>And when the morning sun rise cold<br>I'll take the low road.<br>And kill it so it don't grow anymore.<br>Kill it kill it kill it.<br>I will reach out for the things that can't be seen<br>and pull them over me.<br>Sunday palm ash and the salt from the deep blue sea,<br>and mix them evenly.<br>And when my blackbirds fly over the shrine<br>in the still of the pines,<br>I will take any shape that please me.<br>I will eat my fill both from the alter and windowsill.<br>I will come to whomever feeds me.<br>I will take any shape that please me.<br>I will come to whomever feeds me.<br>Feed me.<br>Kill it.",
+                    Snippet = "I will reach out for the things that can't be seen<br>and pull them over me.<br>Sunday palm ash and the salt from the deep blue sea,<br>and mix them evenly."
                 }
             };
             return songs;
