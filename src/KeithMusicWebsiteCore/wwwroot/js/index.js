@@ -25,7 +25,7 @@ function GetLoopSongs() {
 
 function OnSuccessLoopSongs(data) {
     songsDB = data;
-    LoopSnippets();
+    LoopSnippets(true);
 }
 
 function OnErrorLoopSongs(data) {
@@ -66,9 +66,10 @@ $(document).ready(function () {
 
 /***********************************   LYRIC AND SONG FUNCTIONS   **********************************************/
 
-function LoopSnippets() {
+function LoopSnippets(loop) {
     var index = 0;
     var $snippetContainer = $("#snippet-container");
+    var interval;
 
     var loopSnippets = function () {
 
@@ -95,10 +96,37 @@ function LoopSnippets() {
         });
     };
 
-    loopSnippets();
-
-    setInterval(function () { loopSnippets(); }, 8000);
+    if (loop) {
+        loopSnippets();
+        interval = setInterval(function () { loopSnippets(); }, 8000);
+        console.log("looping");
+    } else {
+        clearInterval(interval);
+        console.log("cleared");
+    }
 }
+
+function ShowSongList() {
+    var $snippetContainer = $("#snippet-container");
+    var $songListContainer = $("<div id='song-list-container'></div>");
+    var $songList = $("<ul></ul>");
+
+    for (var index = 0; index < songsDB.length; index++) {
+        var $newListItem = $("<li class='song-list-items' id='song" + index + "'>" + songsDB[index].title + "</li>");
+        $newListItem.click(ShowLyrics);
+        $songList.append($newListItem);
+    }
+
+    $songListContainer.append($songList);
+
+    LoopSnippets(false);
+    $snippetContainer.empty();
+    $snippetContainer.append($songListContainer);
+}
+
+$("#lyric-button").click(function () {
+    ShowSongList();
+});
 
 function ShowLyrics() {
     var index = parseInt($(this).attr("id").replace(/[^\d.]/g, ''));
@@ -254,6 +282,6 @@ function SlideYouTubeLinks(direction) {
 
 
 /***********************   ON PAGE UNLOAD   ************************************/
-$(window).unload(function () {
-    //bring up popup window with audio to continue playing song if playing and new page loading
-});
+//$(window).unload(function () {
+//    //bring up popup window with audio to continue playing song if playing and new page loading
+//});

@@ -14,12 +14,12 @@ namespace KeithMusicWebsiteCore.Controllers.Web
             return View();
         }
 
-        public IActionResult Music()
+        public IActionResult News()
         {
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult About()
         {
             return View();
         }

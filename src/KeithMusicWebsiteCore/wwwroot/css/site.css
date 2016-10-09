@@ -34,7 +34,7 @@ html {
 
 body {
     min-height: 100vh;
-    background-color: #00331A;
+    background-color: #00001A;
     position: relative;
 }
 
@@ -51,6 +51,7 @@ body {
     position: relative;
         -webkit-flex: none;
     flex: none;
+    background-color: #00001A;
 }
 
 footer {
@@ -111,7 +112,7 @@ footer {
     min-height: 200px;
     border: 0;
     margin: 0;
-    background: linear-gradient(to top, #00331A, transparent), url("../img/banner-picture-2.jpg") no-repeat center;
+    background: linear-gradient(to top, #00001A, transparent), url("../img/banner-picture-2.jpg") no-repeat center;
     background-position: center;
     background-size: cover;
     font-family: 'IM Fell English SC', serif;
@@ -214,7 +215,7 @@ footer {
     }
     
     #keith-layout-picture {
-        background: linear-gradient(to left, #00331A, transparent 30%), linear-gradient(to bottom, #00331A, transparent 30%), url("../img/keith-standing2.jpg") no-repeat;
+        background: linear-gradient(to left, #00001A, transparent 30%), linear-gradient(to bottom, #00001A, transparent 30%), url("../img/keith-standing2.jpg") no-repeat;  /*used to be #00331A*/
         background-position: top ;  /*center*/
         background-size: 500px 100%; /*contain*/
         width: 500px;
@@ -240,18 +241,18 @@ footer {
         width: auto;
         right: 0;
         margin-left: 500px;
-        background: linear-gradient(to right, #00331A, black 15%);
+        background: linear-gradient(to right, #00001A, black 15%);
         position: fixed;
     }
 }
 
 
 /****************************************************************************************************************
-    1200px and UP       (PAGE-SIZE 3)
+    1450px and UP       (PAGE-SIZE 3)
 ****************************************************************************************************************/
 
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1450px) {
     #page-size {
         z-index: 3;
     }
