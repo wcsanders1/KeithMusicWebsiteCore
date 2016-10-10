@@ -85,9 +85,12 @@ footer {
     flex-direction: column;
 }
 
-#footer-name-email-container p {
+#footer-name-email-container p,
+#footer-name-email-container a {
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    color: white;
 }
 
 #icon-container img {
@@ -198,7 +201,7 @@ footer {
 
 
 /****************************************************************************************************************
-    760px and UP       (PAGE-SIZE 2)
+    860px and UP       (PAGE-SIZE 2)
 ****************************************************************************************************************/
 
 

@@ -2,22 +2,35 @@
     CELLPHONE SIZE    (PAGE-SIZE 1)
 *************************************************************************************************************************/
 
+#about-container {
+        display: -webkit-flex;
+    display: flex;
+        -webkit-flex-direction: column;
+    flex-direction: column;
+    width: 300px;
+    margin: 75px auto;
+}
+
+#about-container p {
+    font-family: 'IM Fell English SC', serif;
+    color: #D9D9D9;
+}
+
 img {
     width: 200px;
     height: 200px;
-    margin: 10% auto;
 }
 
 
 /****************************************************************************************************************
-    760px and UP     (PAGE-SIZE 2)
+    860px and UP     (PAGE-SIZE 2)
 ****************************************************************************************************************/
 
-@media screen and (min-width: 760px) {
+@media screen and (min-width: 860px) {
     
     #view-container {
         margin-left: 500px;
-        margin-top: 500px;
+        margin-top: 200px;
     }
 
 }
