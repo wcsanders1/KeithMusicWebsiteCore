@@ -93,6 +93,10 @@ footer {
     color: white;
 }
 
+#footer-name-email-container a:hover {
+    opacity: .5;
+}
+
 #icon-container img {
     width: 25px;
     height: 25px;

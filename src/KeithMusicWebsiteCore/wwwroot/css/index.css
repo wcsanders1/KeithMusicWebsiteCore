@@ -310,13 +310,14 @@
             -webkit-flex-direction: row;
             -webkit-flex-grow: 1;
         flex-direction: row;
+        flex-grow: 1;
     }
 
     #snippet-lyric-album-container {
-        margin-left: 10%;
         align-self: flex-start;
         height: 90%;
         flex-shrink: 0;
+        margin-left: 10%;
     }
 
     #snippet-container {
