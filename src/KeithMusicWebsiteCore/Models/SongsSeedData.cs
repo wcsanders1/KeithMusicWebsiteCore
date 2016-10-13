@@ -54,7 +54,16 @@ namespace KeithMusicWebsiteCore.Models
                     AudioFileMP3 = "/audio/Idol.mp3",
                     AudioFileOGG = "/audio/Idol.ogg",
                     Lyrics = "Move quietly through the rooms of a house.<br>New fallen snow throws the mood back on the clouds.<br>Young man, got so much love at your hands,<br>why you sitting by yourself?<br>You did a good thing,<br>the world she burst wide open,<br>why'd you move away from her?<br>I got to check myself, I didn't know you at all.<br>But I wanted to be you or be somebody like you<br>since the age that I could talk.<br>Did you see through too much of everything<br>till you couldn't see nothing at all?<br>Well I wish you'd hung around,<br>and I'm not the only one.<br>Meeting your idol isn't fair.<br>Saw you once before a crowd got there.<br>Tried to say something nice, and not to stare,<br>and I left you alone.<br>In effigy still trying to make you speak.<br>In brevity, visitors by three.<br>Say they don't understand,<br>we saw you do it once man.<br>You can do it all again.<br>Wish I could meet you once again.<br>Bring something to sign and have a pen.<br>Try to be cool and shake your hand,<br>and leave you alone.<br>Just leave you alone.<br>But I don't understand.<br>I saw you do it once man.<br>You could have done it all again.<br>I don't understand.<br>I saw you do it once man.<br>Didn't you want to do it again?",
-                    Snippet = "Young man, got so much love at your hands,<br>why you sitting by yourself?<br>You did a good thing,<br>the world she burst wide open,<br>why'd you move away from her?"
+                    Snippet = "You did a good thing,<br>the world she burst wide open,<br>why'd you move away from her?"
+                },
+                new Song
+                {
+                    Id = 5,
+                    Title = "Hit",
+                    AudioFileMP3 = "/audio/Hit.mp3",
+                    AudioFileOGG = "/audio/Hit.ogg",
+                    Lyrics = "Think that you know me,<br>until you see me.<br>I run a black wind.<br>Act like your own man,<br>show some intention.<br>Can tell you're nervous,<br>I ask you focus.<br>I run a black wind.<br>And you lie.<br>Refracted light.<br>We cannot be young forever.<br>You will not be young forever.<br>Live a long life.<br>Never been healed but you never been sick.<br>Never been down,<br>but you've never been kicked.<br>Spin of the wheel,<br>see how far you get.<br>Comes back around<br>next time learn how to hit.<br>Long life.<br>Long life.",
+                    Snippet = "Never been healed but you never been sick.<br>Never been down,<br>but you've never been kicked."
                 }
             };
             return songs;

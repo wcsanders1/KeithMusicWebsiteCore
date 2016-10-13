@@ -173,15 +173,15 @@
 }
 
 .album-image img {
-    width: 150px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
 }
 
 .album-image p {
     font-family: 'IM Fell English SC', serif;
     color: #996633;
     font-size: 1.5em;
-    width: 150px;
+    width: 140px;
 }
 
 #youtube-link {
@@ -311,13 +311,13 @@
             -webkit-flex-grow: 1;
         flex-direction: row;
         flex-grow: 1;
+               margin-left: calc(500px + 5%);
     }
 
     #snippet-lyric-album-container {
         align-self: flex-start;
         height: 90%;
-        flex-shrink: 0;
-        margin-left: 10%;
+ 
     }
 
     #snippet-container {

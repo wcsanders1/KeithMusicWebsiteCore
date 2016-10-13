@@ -79,6 +79,7 @@ function LoopSnippets(loop) {
         $snippetContainer.fadeOut("slow", function () {
             $snippetContainer.empty();
             $snippetContainer.css("max-height", "initial");
+            $snippetContainer.css("-ms-overflow-style", "-ms-autohiding-scrollbar");
             var $lyric;
             var $title;
             var $newSnippet = $("<div></div>");
@@ -231,7 +232,7 @@ function PositionLyrics() {
 
     if (pageSize >= 2) {
         $keithLayoutPicture.hide();
-            $viewAndKeithPictureContainer.prepend($lyricAndControlsContainer);
+        $viewAndKeithPictureContainer.prepend($lyricAndControlsContainer);
     }
 
     if (isPlaying) {
