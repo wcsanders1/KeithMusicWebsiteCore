@@ -16,6 +16,9 @@
     <link href="https://fonts.googleapis.com/css?family=Macondo" rel="stylesheet">               @*font-family: 'Macondo', cursive;*@
 
     <link rel="stylesheet" href="~/css/site.css" type="text/css" />
+    <link type="text/css" rel="stylesheet" href="~/css/index.css" />
+
+ 
 
     <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
 
@@ -27,15 +30,16 @@
 <body>
 
     <div id="not-footer-container">
+        <div id="lyric-and-controls-container"></div>
         <div id="top-banner">
             <div id="name-title-container">
                 <h1>Keith Sanders</h1>
                 <h2>Singer | Songwriter</h2>
             </div>
             <div id="navigation-container">
-                <a id="index" href="@Url.Action("Index")">Music</a>
-                <a id="news" href="@Url.Action("News")">News</a>
-                <a id="about" href="@Url.Action("About")">About</a>
+                <a id="index" href="#">Music</a>     @*@Url.Action("Index")*@
+                <a id="news" href="#">News</a>              @*href="@Url.Action("News")"*@
+                <a id="about" href="#">About</a>        @*href="@Url.Action("About")"*@
             </div>
         </div>
         <div id="page-size"></div>

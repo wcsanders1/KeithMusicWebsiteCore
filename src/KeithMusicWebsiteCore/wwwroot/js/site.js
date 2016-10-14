@@ -1,4 +1,6 @@
-﻿/************************   GLOBAL VARIABLES   *********************************/
+﻿/// <reference path="../../views/app/news.cshtml" />
+/// <reference path="../../views/app/news.cshtml" />
+/************************   GLOBAL VARIABLES   *********************************/
 var pageSize = $("#page-size").css("z-index");
 var songsDB;
 var lyricsShowing = false;
@@ -67,66 +69,56 @@ $(window).resize(function () {
     SetHeightViewaAndPicture();
 });
 
+$("#index").click(function () {
+    if (lyricsShowing && pageSize == 1) {
+        var $lyricAndControlsContainer = $("#lyric-and-controls-container");
+        var audio = document.getElementById("audio");
+        var isPlaying = false;
+
+        if (audio.duration > 0 && !audio.paused) {
+            isPlaying = true;
+        }
 
 
-///***********************   AJAX   *****************************/
+        $("body").prepend($lyricAndControlsContainer);
+        $("#view-container").empty();
+        $("#view-container").load("/App/PartialIndex", function () {
+            $("#lyric-button").after($lyricAndControlsContainer);
+            if (isPlaying) {
+                audio.play();
+            }
+        });
+    } else {
+        $("#view-container").load("/App/PartialIndex");
+    }
 
-//function CallDatabase() {
-//    $.ajax({
-//        async: false,
-//        type: "GET",
-//        url: "/Data/GetAllSongs",
-//        data: "{}",
-//        dataType: "json",
-//        success: OnSuccess,
-//        error: OnError
-//    });
-//}
+});
 
-//function OnSuccess(data) {
-//    songsDB = data;
-//    LoopSnippets();
-//}
+$("#news").click(function () {
+    $("#view-container").load("/App/News");
+});
 
-//function OnError(data) {
+$("#about").click(function () {                 //FIX
+    if (lyricsShowing && pageSize == 1) {
+        var $lyricAndControlsContainer = $("#lyric-and-controls-container");
+        var audio = document.getElementById("audio");
+        var isPlaying = false;
 
-//}
+        if (audio.duration > 0 && !audio.paused) {
+            isPlaying = true;
+        }
 
+        $("body").append($lyricAndControlsContainer);
+        $("#view-container").empty();
+        $("#view-container").load("/App/About");
+        //$("#view-container").append($lyricAndControlsContainer);
 
-/************   AJAX: SHOWS LYRIC SNIPPETS   **************************************************/
+        if (isPlaying) {
+            audio.play();
+        }
+    } else {
+        $("#view-container").load("/App/About");
+    }
+    
 
-//var snippetRequest = new XMLHttpRequest();
-//var $snippetContainer = $("#snippet-container");
-//var snippetIndex = 0;
-//var snippets;
-//var statusHTML;
-
-//snippetRequest.onreadystatechange = function () {
-
-    //if (snippetRequest.readyState === 4) {
-    //    snippets = JSON.parse(snippetRequest.responseText);
-
-        //var loopSnippets = function () {
-
-        //    $snippetContainer.fadeOut("slow", function () {
-        //        $snippetContainer.empty();
-
-        //        if (snippetIndex < songsDB.length - 1) {
-        //            snippetIndex += 1;
-        //        } else {
-        //            snippetIndex = 0;
-        //        }
-
-        //        //statusHTML = songsDB.Title;
-        //        $snippetContainer.append("<p>" + songsDB[snippetIndex].Title + "</p>");
-        //        $snippetContainer.fadeIn("slow");
-        //    })};
-
-        //loopSnippets();
-
-        //setInterval(function () { loopSnippets(); }, 3000);
-    //}
-//};
-
-//snippetRequest.open("GET", "json/lyric-snippets.json");
-//snippetRequest.send();
+});

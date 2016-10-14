@@ -14,14 +14,20 @@ namespace KeithMusicWebsiteCore.Controllers.Web
             return View();
         }
 
+        public IActionResult PartialIndex()
+        {
+            return PartialView();
+
+        }
+
         public IActionResult News()
         {
-            return View();
+            return PartialView();
         }
 
         public IActionResult About()
         {
-            return View();
+            return PartialView();
         }
     }
 }
