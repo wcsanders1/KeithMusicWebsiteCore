@@ -89,16 +89,18 @@ $("#index").click(function () {
             }
         });
     } else {
-        $("#view-container").load("/App/PartialIndex");
+        $("#view-container").empty();
+        $("#view-container").load("/App/PartialIndex", function () {
+            window.resizeBy(1, 0);
+        });
     }
-
+    if (lyricsShowing) {
+        PositionLyrics();
+    }
+    SetHeightViewaAndPicture();
 });
 
 $("#news").click(function () {
-    $("#view-container").load("/App/News");
-});
-
-$("#about").click(function () {                 //FIX
     if (lyricsShowing && pageSize == 1) {
         var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
@@ -110,15 +112,44 @@ $("#about").click(function () {                 //FIX
 
         $("body").append($lyricAndControlsContainer);
         $("#view-container").empty();
-        $("#view-container").load("/App/About");
-        //$("#view-container").append($lyricAndControlsContainer);
-
-        if (isPlaying) {
-            audio.play();
-        }
+        $("#view-container").load("/App/News", function () {
+            $("#view-container").append($lyricAndControlsContainer);
+            if (isPlaying) {
+                audio.play();
+            }
+        });
     } else {
-        $("#view-container").load("/App/About");
+        $("#view-container").empty();
+        $("#view-container").load("/App/News");
     }
-    
+});
 
+$("#about").click(function () {
+    if (lyricsShowing && pageSize == 1) {
+        var $lyricAndControlsContainer = $("#lyric-and-controls-container");
+        var audio = document.getElementById("audio");
+        var isPlaying = false;
+
+        if (audio.duration > 0 && !audio.paused) {
+            isPlaying = true;
+        }
+
+        $("body").append($lyricAndControlsContainer);
+        $("#view-container").empty();
+        $("#view-container").load("/App/About", function () {
+            $("#about-container").after($lyricAndControlsContainer);
+            if (isPlaying) {
+                audio.play();
+            }
+        });
+    } else {
+        $("#view-container").empty();
+        $("#view-container").load("/App/About", function () {
+            window.resizeBy(1, 0);
+        });
+    }
+    if (lyricsShowing) {
+        PositionLyrics();
+    }
+    SetHeightViewaAndPicture();
 });

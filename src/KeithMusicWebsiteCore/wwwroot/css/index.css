@@ -311,7 +311,7 @@
             -webkit-flex-grow: 1;
         flex-direction: row;
         flex-grow: 1;
-               margin-left: calc(500px + 5%);
+        margin-left: calc(500px + 5%);
     }
 
     #snippet-lyric-album-container {
