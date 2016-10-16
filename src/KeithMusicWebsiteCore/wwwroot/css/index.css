@@ -248,7 +248,7 @@
     }
 
     #lyric-and-controls-container {
-        width: 500px;
+        width: 500px !important;
         height: 100%;
         margin-top: 200px;
         position: fixed;
@@ -256,11 +256,11 @@
     }
 
     #lyric-container {
-        font-size: 1.5em;
+        font-size: 1.5em !important;
     }
 
     #title-in-lyrics {
-        font-size: 2em;
+        font-size: 2em !important;
     }
 
     #snippet-lyric-album-container {
@@ -307,9 +307,9 @@
 @media screen and (min-width: 1450px){
     
     #view-container {
-            -webkit-flex-direction: row;
+            -webkit-flex-direction: row !important;
             -webkit-flex-grow: 1;
-        flex-direction: row;
+        flex-direction: row !important;
         flex-grow: 1;
         margin-left: calc(500px + 5%);
     }

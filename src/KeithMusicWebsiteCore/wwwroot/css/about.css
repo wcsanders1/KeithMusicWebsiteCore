@@ -60,7 +60,7 @@ img {
 
     #about-container,
     #about-container p {
-        max-width: 90%;
+        max-width: 90% !important;
 
     }
 }
@@ -79,12 +79,13 @@ img {
 
     #about-container {
         font-size: 2em;
+        white-space: normal;
     }
 
     #view-container {
-            -webkit-flex-direction: column;
+            -webkit-flex-direction: column !important;
             -webkit-flex-grow: 0;
-        flex-direction: column;
+        flex-direction: column !important;
         flex-grow: 0;
         margin-left: 500px;
     }

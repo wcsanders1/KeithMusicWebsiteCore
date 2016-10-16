@@ -3,7 +3,6 @@
 /***********************************   VARIABLES   ***************************************************************/
 
 var
-    $lyricAndControlsContainer = $("#lyric-and-controls-container"),
     youTubeLinks,
     currentYouTubeLink,
     interval,
@@ -193,10 +192,12 @@ function ShowLyrics() {
 
 function CloseLyricContainer() {
     var $keithLayoutPicture = $("#keith-layout-picture");
+    lyricsShowing = false;
 
     if (pageSize == 1) {
         $lyricAndControlsContainer.fadeOut("fast", function () {
             $lyricAndControlsContainer.empty();
+            console.log(lyricsShowing);
         });
     }
 
@@ -206,9 +207,6 @@ function CloseLyricContainer() {
             $keithLayoutPicture.fadeIn("fast");
         });
     }
-
-    console.log(pageSize);
-    lyricsShowing = false;
 }
 
 
@@ -227,7 +225,12 @@ function PositionLyrics() {
     }
 
     if (pageSize == 1) {
-        $("#lyric-button").after($lyricAndControlsContainer);
+        if (page == "index") {
+            $("#lyric-button").after($lyricAndControlsContainer);
+        } else if (page == "about") {
+            $("#about-container").after($lyricAndControlsContainer);
+            $lyricAndControlsContainer.css("margin-bottom", 100 + "px");
+        }
     }
 
     if (pageSize >= 2) {

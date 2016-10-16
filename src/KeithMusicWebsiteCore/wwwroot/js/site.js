@@ -5,6 +5,8 @@ var pageSize = $("#page-size").css("z-index");
 var songsDB;
 var lyricsShowing = false;
 var initialViewContainerHeight;
+var page;
+var $lyricAndControlsContainer = $("#lyric-and-controls-container");
 
 
 /************   SETS HEIGHT OF #view-and-keith-picture-container IN LAYOUT   ******************************/
@@ -70,8 +72,9 @@ $(window).resize(function () {
 });
 
 $("#index").click(function () {
+    console.log("onindex" + lyricsShowing);
     if (lyricsShowing && pageSize == 1) {
-        var $lyricAndControlsContainer = $("#lyric-and-controls-container");
+        //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
         var isPlaying = false;
 
@@ -91,18 +94,20 @@ $("#index").click(function () {
     } else {
         $("#view-container").empty();
         $("#view-container").load("/App/PartialIndex", function () {
-            window.resizeBy(1, 0);
+            window.resizeBy(-1, 1);
         });
     }
     if (lyricsShowing) {
         PositionLyrics();
     }
-    SetHeightViewaAndPicture();
+    page = "index";
+    HighlightNavigation(page);
+    //SetHeightViewaAndPicture();
 });
 
 $("#news").click(function () {
     if (lyricsShowing && pageSize == 1) {
-        var $lyricAndControlsContainer = $("#lyric-and-controls-container");
+        //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
         var isPlaying = false;
 
@@ -122,11 +127,14 @@ $("#news").click(function () {
         $("#view-container").empty();
         $("#view-container").load("/App/News");
     }
+    page = "news";
+    HighlightNavigation(page);
+    //SetHeightViewaAndPicture();
 });
 
 $("#about").click(function () {
     if (lyricsShowing && pageSize == 1) {
-        var $lyricAndControlsContainer = $("#lyric-and-controls-container");
+        //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
         var isPlaying = false;
 
@@ -138,6 +146,7 @@ $("#about").click(function () {
         $("#view-container").empty();
         $("#view-container").load("/App/About", function () {
             $("#about-container").after($lyricAndControlsContainer);
+            $lyricAndControlsContainer.css("margin-bottom", 100 + "px");
             if (isPlaying) {
                 audio.play();
             }
@@ -145,11 +154,29 @@ $("#about").click(function () {
     } else {
         $("#view-container").empty();
         $("#view-container").load("/App/About", function () {
-            window.resizeBy(1, 0);
+            window.resizeBy(-1, 1);
         });
     }
     if (lyricsShowing) {
         PositionLyrics();
     }
-    SetHeightViewaAndPicture();
+    page = "about";
+    HighlightNavigation(page);
+    //SetHeightViewaAndPicture();
 });
+
+function HighlightNavigation(currentPage) {
+    if (currentPage == "index") {
+        $("#index").addClass("current-page");
+        $("#news").removeClass("current-page");
+        $("#about").removeClass("current-page");
+    } else if (page == "news") {
+        $("#index").removeClass("current-page");
+        $("#news").addClass("current-page");
+        $("#about").removeClass("current-page");
+    } else if (page == "about") {
+        $("#index").removeClass("current-page");
+        $("#news").removeClass("current-page");
+        $("#about").addClass("current-page");
+    }
+}
