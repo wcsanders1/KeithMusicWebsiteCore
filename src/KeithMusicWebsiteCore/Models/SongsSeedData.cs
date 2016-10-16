@@ -64,6 +64,15 @@ namespace KeithMusicWebsiteCore.Models
                     AudioFileOGG = "/audio/Hit.ogg",
                     Lyrics = "Think that you know me,<br>until you see me.<br>I run a black wind.<br>Act like your own man,<br>show some intention.<br>Can tell you're nervous,<br>I ask you focus.<br>I run a black wind.<br>And you lie.<br>Refracted light.<br>We cannot be young forever.<br>You will not be young forever.<br>Live a long life.<br>Never been healed but you never been sick.<br>Never been down,<br>but you've never been kicked.<br>Spin of the wheel,<br>see how far you get.<br>Comes back around<br>next time learn how to hit.<br>Long life.<br>Long life.",
                     Snippet = "Never been healed but you never been sick.<br>Never been down,<br>but you've never been kicked."
+                },
+                new Song
+                {
+                    Id = 6,
+                    Title = "Hanging Gardens",
+                    AudioFileMP3 = "/audio/HangingGardens.mp3",
+                    AudioFileOGG = "/audio/HangingGardens.ogg",
+                    Lyrics = "Long days, hot nights.<br>Leave the windows open wide.<br>Shade trees shed light.<br>Walk by my side,<br>down the avenue tonight.<br>Frame me in your light.<br>Dead or alive<br>I came here to meet you.<br>Rolled out from under<br>the butcher's knife.<br>And I can't remember,<br>because I've had a fever.<br>Afloat in the harbor<br>I feel as cold as ice.<br>Long days, hot nights.<br>Hear the storms roll in the sky.<br>Still frames of white light.<br>My my, July.<br>Do you remember you and I?<br>By the cypress and the grape vine.<br>Dead or alive<br>I came here to see you,<br>in the hanging gardens<br>where the daylight's run.<br>You move over water,<br>and I will receive you.<br>And you don't have to tell me<br>you can't stay very long.",
+                    Snippet = "Long days, hot nights.<br>Hear the storms roll in the sky.<br>Still frames of white light."
                 }
             };
             return songs;

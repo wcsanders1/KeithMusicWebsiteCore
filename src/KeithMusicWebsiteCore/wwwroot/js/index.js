@@ -1,12 +1,12 @@
-﻿
-
-/***********************************   VARIABLES   ***************************************************************/
+﻿/***********************************   VARIABLES   ***************************************************************/
 
 var
     youTubeLinks,
     currentYouTubeLink,
     interval,
     songListShowing = false;
+
+/*******************  audio controls  ******************************/
 
 /***********************************************************************************/
 //$lyricAndControlsContainer.hide();
@@ -162,11 +162,13 @@ function ShowLyrics() {
 
     var $exitIcon = $("<p id='exit-icon'>X</p>");
     $exitIcon.click(CloseLyricContainer);
-    var $audioAndExitDiv = $("<div id='audio-and-exit'><audio id='audio' controls><source src='" + songMP3 + "' type='audio/mpeg'/><source src='" + songOGG + "' type='audio/ogg'/><p>Your browser does not support HTML5 audio.</p></audio></div>");
-    $audioAndExitDiv.append($exitIcon);
+    var $audioAndExitDiv = $("<div id='audio-and-exit'><audio id='audio'><source id='mp3-src' src='" + songMP3 + "' type='audio/mpeg'/><source id='ogg-src' src='" + songOGG + "' type='audio/ogg'/><p>Your browser does not support HTML5 audio.</p></audio></div>");
+    $audioAndExitDiv.append($audioControls);
+
+    //$audioAndExitDiv.append($exitIcon);
 
     var $titleInLyrics = $("<p id='title-in-lyrics'>" + songsDB[index].title + "</p>");
-    var $lyrics = $("<p>" + songsDB[index].lyrics + "</p>");
+    var $lyrics = $("<p id='lyrics-of-song'>" + songsDB[index].lyrics + "</p>");
     $lyricContainer.append($titleInLyrics);
     $lyricContainer.append($lyrics);
 
@@ -188,6 +190,19 @@ function ShowLyrics() {
     }
 
     lyricsShowing = true;
+    currentSong = index;
+
+    $("#song-time-played").text("0:00");
+    $("#audio").bind("loadedmetadata", function () {
+        var s = parseInt(this.duration % 60);
+        var m = parseInt((this.duration) / 60) % 60;
+        if (s < 10) {
+            s = "0" + s;
+        }
+        $("#song-length").text(m + ":" + s);
+    });
+
+    ResetProgressBar();
 }
 
 function CloseLyricContainer() {
@@ -197,7 +212,6 @@ function CloseLyricContainer() {
     if (pageSize == 1) {
         $lyricAndControlsContainer.fadeOut("fast", function () {
             $lyricAndControlsContainer.empty();
-            console.log(lyricsShowing);
         });
     }
 
@@ -308,7 +322,6 @@ function SlideYouTubeLinks(direction) {
 }
 
 
-/***********************   ON PAGE UNLOAD   ************************************/
-//$(window).unload(function () {
-//    //bring up popup window with audio to continue playing song if playing and new page loading
-//});
+/***********************  Audio Controls   ************************************/
+
+

@@ -29,5 +29,10 @@ namespace KeithMusicWebsiteCore.Controllers.Web
         {
             return PartialView();
         }
+
+        public IActionResult AudioControls()
+        {
+            return PartialView();
+        }
     }
 }
