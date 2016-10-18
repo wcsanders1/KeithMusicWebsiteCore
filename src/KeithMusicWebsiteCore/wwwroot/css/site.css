@@ -221,6 +221,7 @@ footer {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+    justify-content: center;
 	width: 45%;
 	height: 100%;
 	margin-left: 2px;
@@ -236,6 +237,7 @@ footer {
 	margin: 0;
 	background-color: black;
 	border-radius: 10px;
+    font-size: .85em;
 }
 
 #progress-label p {
@@ -246,7 +248,7 @@ footer {
 
 #progress-bar {
 	width: 65%;
-	height: 5px;
+	height: 10px;
 	background: black;
     position: relative;
     margin-left: 5px;
@@ -254,29 +256,34 @@ footer {
 
 #progress {
 	background: blue;
-	height: 5px;
+	height: 10px;
     width: 0;
     left: 0;
     position: absolute;
+}
+
+#progress-bar:hover,
+#progress:hover {
+    cursor: pointer;
 }
 
 #volume-container {
 	display: flex;
 	flex-direction: row;
 	width: 15%;
-	height: 100%;
+	height: 50px;
     position: relative;
 }
 
 #volume-icon {
 	align-self: center;
 	position: relative;
-	bottom: 1px;
+    margin-left: 2px;
 }
 
 #volume-bar {
 	height: 1px;
-    width: 45px !important;
+    width: 40px !important;
 	margin-left: 5px;
     -ms-transform: rotate(270deg);
     -webkit-transform: rotate(270deg);
@@ -285,8 +292,13 @@ footer {
 	background-color: black;
 	-webkit-appearance: none !important;
 	position: absolute;
-	left: -5px;
     bottom: 23px;
+    outline: none;
+    left: 1px;
+}
+
+#volume-bar:hover {
+    cursor: pointer;
 }
 
 #volume-bar::-webkit-slider-thumb {
@@ -294,6 +306,35 @@ footer {
 	background: url("../img/knob.png") no-repeat;
 	height: 12px;
 	width: 12px;
+}
+
+@supports (-ms-accelerator:true) {   /* for EDGE only */
+    #volume-bar {
+        height: 5px;
+        background-color: white;
+    }
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {  /* ie only */
+    #volume-bar {
+        height:auto;
+        width: 45px !important;
+	    margin-left: 5px;
+        /*-ms-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);*/
+	    /*transform: rotate(90deg);*/
+	    align-self: center;
+	    /*-webkit-appearance: none !important;*/
+        background-color: gray;
+	    position: static;
+	    left: -5px;
+        bottom: 23px;
+        outline: none;
+    }
+
+    #volume-icon {
+        display: none;
+    }
 }
 
 #audio-buttons-container {
@@ -319,6 +360,10 @@ footer {
  
  .audio-buttons p {
 	margin: 0;
+ }
+
+ .audio-buttons:hover {
+     cursor: pointer;
  }
  
  #play-pause-button {
@@ -406,6 +451,27 @@ footer {
     #audio-container {
         width: 500px;
     }
+
+    #progress-label {
+        font-size: 1em;
+    }
+
+    #volume-bar {
+        left: 5px;
+    }
+}
+
+@media screen and (mid-width: 860px) and (-ms-high-contrast: none) and (-ms-high-contrast: active) { /* ie only */
+
+  /*this doesn't work*/
+        #volume-bar {
+            margin-left: 10px;
+        }
+
+        #volume-icon {
+            display: inline-block;
+        }
+ 
 }
 
 

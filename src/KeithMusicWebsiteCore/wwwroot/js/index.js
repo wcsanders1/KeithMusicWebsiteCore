@@ -162,7 +162,7 @@ function ShowLyrics() {
 
     var $exitIcon = $("<p id='exit-icon'>X</p>");
     $exitIcon.click(CloseLyricContainer);
-    var $audioAndExitDiv = $("<div id='audio-and-exit'><audio id='audio'><source id='mp3-src' src='" + songMP3 + "' type='audio/mpeg'/><source id='ogg-src' src='" + songOGG + "' type='audio/ogg'/><p>Your browser does not support HTML5 audio.</p></audio></div>");
+    var $audioAndExitDiv = $("<div id='audio-and-exit'><audio id='audio' onended='OnEndSong()'><source id='mp3-src' src='" + songMP3 + "' type='audio/mpeg'/><source id='ogg-src' src='" + songOGG + "' type='audio/ogg'/><p>Your browser does not support HTML5 audio.</p></audio></div>");
     $audioAndExitDiv.append($audioControls);
 
     //$audioAndExitDiv.append($exitIcon);
@@ -203,6 +203,7 @@ function ShowLyrics() {
     });
 
     ResetProgressBar();
+    ResetPlayButton();
 }
 
 function CloseLyricContainer() {

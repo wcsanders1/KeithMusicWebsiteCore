@@ -8,7 +8,7 @@ var initialViewContainerHeight;
 var page;
 var currentSong;
 var $lyricAndControlsContainer = $("#lyric-and-controls-container");
-var $audioControls = $("<div id='audio-container'><div id='progress-container'><div id='progress-label'><p id='song-time-played'>0:00</p><p id='song-length'>1:23</p></div><div id='progress-bar'><span id='progress'></span></div></div><div id='volume-container'><div id='volume-icon' class='fa fa-volume-up' aria-hidden='true'></div><input id='volume-bar' type='range' min='0' max='10'/></div><div id='audio-buttons-container'><div id='play-pause-button' class='audio-buttons'><p class='fa fa-play' aria-hidden='true'></p></div><div id='stop-button' class='audio-buttons'><p class='fa fa-stop' aria-hidden='true'></p></div><div id='back-button' class='audio-buttons'><p class='fa fa-step-backward' aria-hidden='true'></p></div><div id='forward-button' class='audio-buttons'><p class='fa fa-step-forward' aria-hidden='true'></p></div><div id='exit-button' class='audio-buttons'><p class='fa fa-times-circle' aria-hidden='true'></p></div></div></div>");
+var $audioControls = $("<div id='audio-container'><div id='progress-container'><div id='progress-label'><p id='song-time-played'>0:00</p><p id='song-length'>0:00</p></div><div id='progress-bar'><span id='progress'></span></div></div><div id='volume-container'><div id='volume-icon' class='fa fa-volume-up' aria-hidden='true'></div><input id='volume-bar' type='range' min='0' max='10'/></div><div id='audio-buttons-container'><div id='play-pause-button' class='audio-buttons'><p class='fa fa-play' aria-hidden='true'></p></div><div id='stop-button' class='audio-buttons'><p class='fa fa-stop' aria-hidden='true'></p></div><div id='back-button' class='audio-buttons'><p class='fa fa-step-backward' aria-hidden='true'></p></div><div id='forward-button' class='audio-buttons'><p class='fa fa-step-forward' aria-hidden='true'></p></div><div id='exit-button' class='audio-buttons'><p class='fa fa-times-circle' aria-hidden='true'></p></div></div></div>");
 
 
 /************   SETS HEIGHT OF #view-and-keith-picture-container IN LAYOUT   ******************************/
@@ -71,6 +71,7 @@ $(window).resize(function () {
     }
 
     SetHeightViewaAndPicture();
+    $("#volume-bar").focus();   //this is to hack EDGE oddity
 });
 
 $("#index").click(function () {
@@ -214,12 +215,14 @@ $("body").on("click", "#back-button", function () {
     $("#song-time-played").text("0:00");
     ChangeSong("back");
     ResetProgressBar();
+    ResetPlayButton();
 });
 
 $("body").on("click", "#forward-button", function () {
     $("#song-time-played").text("0:00");
     ChangeSong("forward");
     ResetProgressBar();
+    ResetPlayButton();
 });
 
 $("body").on("click", "#exit-button", function () {
@@ -233,31 +236,44 @@ $("body").on("click", "#progress-bar", function (e) {
     var leftOffset = e.pageX - $(this).offset().left;
     var songPercents = leftOffset / $("#progress-bar").width();
     audioElement.currentTime = songPercents * audioElement.duration;
-    
+    value = Math.floor((100 / audioElement.duration) * audioElement.currentTime);
+    $("#progress").css("width", value + "%");
+    ShowCurrentTime(audioElement);
 });
 
-$("body").on("input", "#volume-bar", function () {
+$("body").on("input change", "#volume-bar", function () {    //ie doesn't support input, so change too
     console.log("changing");
     var audioElement = document.getElementById("audio");
     audio.volume = parseFloat(this.value / 10);
 });
 
-function ShowDuration() {
-    var $audioControl = $("#audio");
+function OnEndSong() {
+    var audioElement = document.getElementById("audio");
     
-    $audioControl.bind("timeupdate", function () {
-        var s = parseInt(this.currentTime % 60);
-        var m = parseInt((this.currentTime) / 60) % 60;
-        if (s < 10) {
-            s = "0" + s;
-        }
-        $("#song-time-played").text(m + ":" + s);
+    ChangeSong("forward");
+    $("#song-time-played").text("0:00");
+    ResetProgressBar();
+    audioElement.play();
+}
+
+function ShowDuration() {
+    $("#audio").bind("timeupdate", function () {
+        ShowCurrentTime(this);
         var value = 0;
         if (this.currentTime > 0) {
             value = Math.floor((100 / this.duration) * this.currentTime);
         }
         $("#progress").css("width", value + "%");
     });
+}
+
+function ShowCurrentTime(audioElement) {
+    var s = parseInt(audioElement.currentTime % 60);
+    var m = parseInt((audioElement.currentTime) / 60) % 60;
+    if (s < 10) {
+        s = "0" + s;
+    }
+    $("#song-time-played").text(m + ":" + s);
 }
 
 function ResetPlayButton() {
@@ -290,7 +306,6 @@ function ChangeSong(direction) {
     var songOGG = songsDB[currentSong].audioFileOGG.toString();
 
     audioControl.pause();
-    ResetPlayButton();
     
     $("#mp3-src").attr("src", songMP3);
     $("#ogg-src").attr("src", songOGG);
