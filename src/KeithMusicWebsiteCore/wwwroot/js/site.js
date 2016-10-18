@@ -8,7 +8,7 @@ var initialViewContainerHeight;
 var page;
 var currentSong;
 var $lyricAndControlsContainer = $("#lyric-and-controls-container");
-var $audioControls = $("<div id='audio-container'><div id='progress-container'><div id='progress-label'><p id='song-time-played'>0:00</p><p id='song-length'>0:00</p></div><div id='progress-bar'><span id='progress'></span></div></div><div id='volume-container'><div id='volume-icon' class='fa fa-volume-up' aria-hidden='true'></div><input id='volume-bar' type='range' min='0' max='10'/></div><div id='audio-buttons-container'><div id='play-pause-button' class='audio-buttons'><p class='fa fa-play' aria-hidden='true'></p></div><div id='stop-button' class='audio-buttons'><p class='fa fa-stop' aria-hidden='true'></p></div><div id='back-button' class='audio-buttons'><p class='fa fa-step-backward' aria-hidden='true'></p></div><div id='forward-button' class='audio-buttons'><p class='fa fa-step-forward' aria-hidden='true'></p></div><div id='exit-button' class='audio-buttons'><p class='fa fa-times-circle' aria-hidden='true'></p></div></div></div>");
+var $audioControls = $("<div id='audio-container'><div id='progress-container'><div id='progress-label'><p id='song-time-played'>0:00</p><p id='song-length'>0:00</p></div><div id='progress-bar'><span id='progress'></span></div></div><div id='volume-container'><div id='volume-icon' class='fa fa-volume-down' aria-hidden='true'></div><input id='volume-bar' type='range' min='0' max='10'/></div><div id='audio-buttons-container'><div id='play-pause-button' class='audio-buttons'><p class='fa fa-play' aria-hidden='true'></p></div><div id='stop-button' class='audio-buttons'><p class='fa fa-stop' aria-hidden='true'></p></div><div id='back-button' class='audio-buttons'><p class='fa fa-step-backward' aria-hidden='true'></p></div><div id='forward-button' class='audio-buttons'><p class='fa fa-step-forward' aria-hidden='true'></p></div><div id='exit-button' class='audio-buttons'><p class='fa fa-times-circle' aria-hidden='true'></p></div></div></div>");
 
 
 /************   SETS HEIGHT OF #view-and-keith-picture-container IN LAYOUT   ******************************/
@@ -242,9 +242,20 @@ $("body").on("click", "#progress-bar", function (e) {
 });
 
 $("body").on("input change", "#volume-bar", function () {    //ie doesn't support input, so change too
-    console.log("changing");
     var audioElement = document.getElementById("audio");
+    var icon = $("#volume-icon");
     audio.volume = parseFloat(this.value / 10);
+
+    if (this.value == 0) {
+        icon.addClass("fa-volume-off");
+        icon.removeClass("fa-volume-down fa-volume-up");
+    } else if (this.value > 0 && this.value <= 5) {
+        icon.addClass("fa-volume-down");
+        icon.removeClass("fa-volume-off fa-volume-up");
+    } else if (this.value > 5) {
+        icon.addClass("fa-volume-up");
+        icon.removeClass("fa-volume-off fa-volume-down");
+    }
 });
 
 function OnEndSong() {

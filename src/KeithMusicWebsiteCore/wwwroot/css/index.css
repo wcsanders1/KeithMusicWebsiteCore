@@ -1,4 +1,20 @@
-﻿/*************************************************************************************************************************
+﻿@media screen and (min-width: 1450px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    #youtube-link {
+        width: 500px !important;
+    }
+
+    #youtube-link-headline,
+    #youtube-link-caption {
+        width: 500px !important;
+    }
+
+    #youtube-link-url {
+        width: 500px !important;
+    }
+}
+
+
+/*************************************************************************************************************************
     CELLPHONE SIZE    (PAGE-SIZE 1)
 *************************************************************************************************************************/
 
@@ -195,7 +211,7 @@
     align-self: center;
     margin-top: 40px;
     margin-bottom: 100px !important;
-    max-width: 300px;
+    width: 300px;
 }
 
 #youtube-link-url {
@@ -206,7 +222,7 @@
 #youtube-link-caption {
     font-family: 'IM Fell English SC', serif;
     color: #996633;
-    max-width: 300px;
+    width: 300px;
 }
 
 #youtube-link-caption {
@@ -329,16 +345,16 @@
         margin-right: auto;
         margin-top: 0;
         align-self: flex-start;
-        max-width: 500px;
+        width: 500px !important;
     }
 
     #youtube-link-headline,
     #youtube-link-caption {
-        max-width: 500px;
+        width: 500px !important;
     }
 
     #youtube-link-url {
-        width: 500px;
+        width: 500px !important;
         height: 300px;
     }
 }

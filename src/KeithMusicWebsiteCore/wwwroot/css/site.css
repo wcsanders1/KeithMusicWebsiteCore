@@ -1,4 +1,22 @@
-﻿/******************************************
+﻿@media screen and (min-width: 1450px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    #youtube-link {
+        width: 500px !important;
+    }
+
+    #youtube-link-headline,
+    #youtube-link-caption {
+        width: 500px !important;
+    }
+
+    #youtube-link-url {
+        width: 500px !important;
+    }
+}
+
+
+
+
+/******************************************
     FONTS
 ******************************************/
 
@@ -337,6 +355,19 @@ footer {
     }
 }
 
+@media screen and (min-width: 860px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    #volume-bar {
+        margin-left: 18px;
+        position: absolute;
+        bottom: -5px;
+
+    }
+
+    #volume-icon {
+        display: inline-flex;
+    }
+}
+
 #audio-buttons-container {
 	display: flex;
 	flex-direction: row;
@@ -461,18 +492,18 @@ footer {
     }
 }
 
-@media screen and (mid-width: 860px) and (-ms-high-contrast: none) and (-ms-high-contrast: active) { /* ie only */
+/*@media screen and (mid-width: 860px) and (-ms-high-contrast: none) and (-ms-high-contrast: active) { /* ie only */
 
   /*this doesn't work*/
-        #volume-bar {
+        /*#volume-bar {
             margin-left: 10px;
         }
 
         #volume-icon {
             display: inline-block;
-        }
+        }*/
  
-}
+/*}*/
 
 
 /****************************************************************************************************************

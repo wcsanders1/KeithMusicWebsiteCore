@@ -222,6 +222,12 @@ function CloseLyricContainer() {
             $keithLayoutPicture.fadeIn("fast");
         });
     }
+
+    var volumeBar = document.getElementById("volume-bar");
+    var volumeIcon = $("#volume-icon");
+    volumeBar.value = 5;
+    volumeIcon.removeClass("fa-volume-off fa-volume-up");
+    volumeIcon.addClass("fa-volume-down");
 }
 
 
@@ -270,15 +276,17 @@ function FillYouTubeContainer(index) {
     $youtTubeLinkHeadline.html(youTubeLinks[index].headline);
     $youTubeLinkUrl.attr("src", youTubeLinks[index].url);
     $youTubeLinkCaption.html(youTubeLinks[index].caption);
+
+    //TRY IE HACK HERE
 }
 
 
 /************************   SLIDE YOUTUBE LINKS   ******************************************/
-$("#youtube-link-left-button").click(function () {
+$("#youtube-link-left-button").on("click dblclick", function () {
     SlideYouTubeLinks("left");    
 });
 
-$("#youtube-link-right-button").click(function () {
+$("#youtube-link-right-button").on("click dblclick", function () {
     SlideYouTubeLinks("right");
 });
 
@@ -295,6 +303,7 @@ function SlideYouTubeLinks(direction) {
         }
 
         $youTubeSlider.animate({ left: "-500px" }, function () {
+            // DISABLE BUTTONS WHILE SLIDING
             $youTubeSlider.css("visibility", "hidden");
             FillYouTubeContainer(currentYouTubeLink);
         });
@@ -302,6 +311,7 @@ function SlideYouTubeLinks(direction) {
         $youTubeSlider.animate({ left: "500px" }, "fast", function () {
             $youTubeSlider.css("visibility", "visible");
             $("#youtube-slider").animate({ left: "-=500px" });
+            //ENABLE BUTTONS
         });
     } else {
         if (currentYouTubeLink >= (youTubeLinks.length - 1)) {
@@ -311,6 +321,7 @@ function SlideYouTubeLinks(direction) {
         }
 
         $youTubeSlider.animate({ left: "500px" }, function () {
+            //DISABLE BUTTONS
             $youTubeSlider.css("visibility", "hidden");
             FillYouTubeContainer(currentYouTubeLink);
         });
@@ -318,6 +329,7 @@ function SlideYouTubeLinks(direction) {
         $youTubeSlider.animate({ left: "-500px" }, "fast", function () {
             $youTubeSlider.css("visibility", "visible");
             $("#youtube-slider").animate({ left: "+=500px" });
+            //ENABLE BUTTONS
         });
     }
 }
