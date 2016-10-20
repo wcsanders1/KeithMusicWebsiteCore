@@ -65,6 +65,10 @@ $(document).ready(function () {
     GetYouTubeLinks();
 });
 
+$(window).resize(function () {
+    IEHack();
+});
+
 
 
 /***********************************   LYRIC AND SONG FUNCTIONS   **********************************************/
@@ -125,7 +129,7 @@ function ShowSongList() {
 
     $snippetContainer.fadeOut("fast", function () {
         $snippetContainer.empty();
-        $snippetContainer.css("max-height", "300px");
+        $snippetContainer.css("max-height", "275px");
         $snippetContainer.css("overflow-y", "auto");
         $snippetContainer.append($songListContainer);
         $snippetContainer.fadeIn("fast");
@@ -277,7 +281,23 @@ function FillYouTubeContainer(index) {
     $youTubeLinkUrl.attr("src", youTubeLinks[index].url);
     $youTubeLinkCaption.html(youTubeLinks[index].caption);
 
-    //TRY IE HACK HERE
+    IEHack();
+}
+
+function IEHack() {
+    var $youtTubeLinkHeadline = $("#youtube-link-headline");
+    var $youTubeLinkUrl = $("#youtube-link-url");
+    var $youTubeLinkCaption = $("#youtube-link-caption");
+
+    if (pageSize > 2) {
+        $youtTubeLinkHeadline.width(500);
+        $youTubeLinkUrl.width(500);
+        $youTubeLinkCaption.width(500);
+    } else {
+        $youtTubeLinkHeadline.width(300);
+        $youTubeLinkUrl.width(300);
+        $youTubeLinkCaption.width(300);
+    }
 }
 
 
@@ -290,12 +310,17 @@ $("#youtube-link-right-button").on("click dblclick", function () {
     SlideYouTubeLinks("right");
 });
 
+var sliding = false;
+
 function SlideYouTubeLinks(direction) {
     var $youTubeSlider = $("#youtube-slider");
 
-
+    if (sliding) {
+        return;
+    }
 
     if (direction == "left") {
+        sliding = true;
         if (currentYouTubeLink == 0) {
             currentYouTubeLink = youTubeLinks.length - 1;
         } else {
@@ -303,7 +328,6 @@ function SlideYouTubeLinks(direction) {
         }
 
         $youTubeSlider.animate({ left: "-500px" }, function () {
-            // DISABLE BUTTONS WHILE SLIDING
             $youTubeSlider.css("visibility", "hidden");
             FillYouTubeContainer(currentYouTubeLink);
         });
@@ -311,9 +335,10 @@ function SlideYouTubeLinks(direction) {
         $youTubeSlider.animate({ left: "500px" }, "fast", function () {
             $youTubeSlider.css("visibility", "visible");
             $("#youtube-slider").animate({ left: "-=500px" });
-            //ENABLE BUTTONS
+            sliding = false;
         });
     } else {
+        sliding = true;
         if (currentYouTubeLink >= (youTubeLinks.length - 1)) {
             currentYouTubeLink = 0;
         } else {
@@ -321,7 +346,6 @@ function SlideYouTubeLinks(direction) {
         }
 
         $youTubeSlider.animate({ left: "500px" }, function () {
-            //DISABLE BUTTONS
             $youTubeSlider.css("visibility", "hidden");
             FillYouTubeContainer(currentYouTubeLink);
         });
@@ -329,7 +353,7 @@ function SlideYouTubeLinks(direction) {
         $youTubeSlider.animate({ left: "-500px" }, "fast", function () {
             $youTubeSlider.css("visibility", "visible");
             $("#youtube-slider").animate({ left: "+=500px" });
-            //ENABLE BUTTONS
+            sliding = false;
         });
     }
 }

@@ -72,6 +72,7 @@ $(window).resize(function () {
 
     SetHeightViewaAndPicture();
     $("#volume-bar").focus();   //this is to hack EDGE oddity
+    IEHack();
 });
 
 $("#index").click(function () {

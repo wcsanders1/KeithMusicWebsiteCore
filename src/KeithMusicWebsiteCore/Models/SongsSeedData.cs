@@ -73,6 +73,24 @@ namespace KeithMusicWebsiteCore.Models
                     AudioFileOGG = "/audio/HangingGardens.ogg",
                     Lyrics = "Long days, hot nights.<br>Leave the windows open wide.<br>Shade trees shed light.<br>Walk by my side,<br>down the avenue tonight.<br>Frame me in your light.<br>Dead or alive<br>I came here to meet you.<br>Rolled out from under<br>the butcher's knife.<br>And I can't remember,<br>because I've had a fever.<br>Afloat in the harbor<br>I feel as cold as ice.<br>Long days, hot nights.<br>Hear the storms roll in the sky.<br>Still frames of white light.<br>My my, July.<br>Do you remember you and I?<br>By the cypress and the grape vine.<br>Dead or alive<br>I came here to see you,<br>in the hanging gardens<br>where the daylight's run.<br>You move over water,<br>and I will receive you.<br>And you don't have to tell me<br>you can't stay very long.",
                     Snippet = "Long days, hot nights.<br>Hear the storms roll in the sky.<br>Still frames of white light."
+                },
+                new Song
+                {
+                    Id = 7,
+                    Title = "Wearing a Dead Man's Clothes",
+                    AudioFileMP3 = "/audio/DeadMan.mp3",
+                    AudioFileOGG = "/audio/DeadMan.ogg",
+                    Lyrics = "I'm going out alone<br>wearing a dead man's clothes.<br>I draw water from the stone.<br>Fell in love with a ghost.<br>The fire went out.<br>I could feel it going down.<br>I was sitting on the third floor,<br>I was looking out<br>at a road that goes down<br>from the maddening crowd<br>to an old man living in a burned out house.<br>Yeah I'm going out alone<br>wearing a dead man's coat.<br>I draw water from the stone.<br>Fell in love with the ghost.<br>The fire burned out,<br>yeah I could see it going down.<br>I was sitting on the third floor<br>watching the sun going down.<br>And all the spirits came out,<br>and speaking aloud said<br>if you got a good hand<br>you better lay it down now.<br>They want to grab hold,<br>swallow a dead man's soul.<br>She said leave it alone.<br>You know they aint like you.<br>But I feel just like a bomb,<br>only I already blew.<br>Tonight I'm going downtown<br>wearing a dead man's suit.",
+                    Snippet = "I'm going out alone<br>wearing a dead man's clothes."
+                },
+                new Song
+                {
+                    Id = 8,
+                    Title = "Wicked Win",
+                    AudioFileMP3 = "/audio/WickedWin.mp3",
+                    AudioFileOGG = "/audio/WickedWin/ogg",
+                    Lyrics = "Oh Lord, light me up and knock me down.<br>Kick me when I'm on the ground.<br>You tell me that it's over now.<br>Cause I've been sleeping on my own today,<br>standing in a strange place,<br>carry on another way.<br>Oh man better cut my loss,<br>better cut this cross,<br>better reel it in.<br>Kills me to let the wicked win.<br>Somebody let the devil in again.<br>Kills me to let the wicked win.<br>I've been banging on my highest wall,<br>sleeping in a crowded hall,<br>living, I don't care at all.<br>And I know everybody's got to fight,<br>everything is on the line,<br>and everybody's losing time.<br>Oh man better cut my loss,<br>better cut this cross,<br>better reel it in.<br>Kills me to let the wicked win.<br>Somebody let the devil in again.<br>Kills me to let the wicked win.",
+                    Snippet = "Somebody let the devil in again.<br>Kills me to let the wicked win."
                 }
             };
             return songs;
