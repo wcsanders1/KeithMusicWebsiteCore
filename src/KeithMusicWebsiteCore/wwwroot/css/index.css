@@ -336,7 +336,7 @@
     #snippet-lyric-album-container {
         align-self: flex-start;
         height: 90%;
- 
+        margin-top: 0;
     }
 
     #snippet-container {

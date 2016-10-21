@@ -7,6 +7,7 @@ var lyricsShowing = false;
 var initialViewContainerHeight;
 var page;
 var currentSong;
+//var interval;
 var $lyricAndControlsContainer = $("#lyric-and-controls-container");
 var $audioControls = $("<div id='audio-container'><div id='progress-container'><div id='progress-label'><p id='song-time-played'>0:00</p><p id='song-length'>0:00</p></div><div id='progress-bar'><span id='progress'></span></div></div><div id='volume-container'><div id='volume-icon' class='fa fa-volume-down' aria-hidden='true'></div><input id='volume-bar' type='range' min='0' max='10'/></div><div id='audio-buttons-container'><div id='play-pause-button' class='audio-buttons'><p class='fa fa-play' aria-hidden='true'></p></div><div id='stop-button' class='audio-buttons'><p class='fa fa-stop' aria-hidden='true'></p></div><div id='back-button' class='audio-buttons'><p class='fa fa-step-backward' aria-hidden='true'></p></div><div id='forward-button' class='audio-buttons'><p class='fa fa-step-forward' aria-hidden='true'></p></div><div id='exit-button' class='audio-buttons'><p class='fa fa-times-circle' aria-hidden='true'></p></div></div></div>");
 
@@ -76,7 +77,7 @@ $(window).resize(function () {
 });
 
 $("#index").click(function () {
-    console.log("onindex" + lyricsShowing);
+    ClearAllIntervals();
     if (lyricsShowing && pageSize == 1) {
         //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
@@ -98,7 +99,16 @@ $("#index").click(function () {
     } else {
         $("#view-container").empty();
         $("#view-container").load("/App/PartialIndex", function () {
-            window.resizeBy(-1, 1);
+
+            /***********  IE Hack; otherwise, IE won't size the view correctly  *****************/
+            window.clearInterval(interval);
+            $("#view-container").empty();
+            $("#view-container").load("/App/PartialIndex");
+            window.clearInterval(interval);
+            $("#view-container").empty();
+            $("#view-container").load("/App/PartialIndex");
+            window.clearInterval(interval);
+            IEHack();
         });
     }
     if (lyricsShowing) {
@@ -110,6 +120,7 @@ $("#index").click(function () {
 });
 
 $("#news").click(function () {
+    window.clearInterval(interval);
     if (lyricsShowing && pageSize == 1) {
         //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
@@ -137,6 +148,7 @@ $("#news").click(function () {
 });
 
 $("#about").click(function () {
+    window.clearInterval(interval);
     if (lyricsShowing && pageSize == 1) {
         //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
@@ -325,4 +337,10 @@ function ChangeSong(direction) {
     $("#lyrics-of-song").html(songsDB[currentSong].lyrics);
 
     audioControl.load();
+}
+
+function ClearAllIntervals() {
+    for (var i = 1; i < 10000; i++) {
+        window.clearInterval(i);
+    }
 }

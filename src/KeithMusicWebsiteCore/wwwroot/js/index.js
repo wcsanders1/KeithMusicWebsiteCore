@@ -3,8 +3,9 @@
 var
     youTubeLinks,
     currentYouTubeLink,
-    interval,
-    songListShowing = false;
+    interval;
+
+var songListShowing = false;
 
 /*******************  audio controls  ******************************/
 
@@ -79,6 +80,10 @@ function LoopSnippets(loop) {
 
     var loopSnippets = function () {
 
+        if (songListShowing) {
+            return;
+        }
+
         $snippetContainer.fadeOut("slow", function () {
             $snippetContainer.empty();
             $snippetContainer.css("max-height", "initial");
@@ -106,9 +111,14 @@ function LoopSnippets(loop) {
 
     if (loop) {
         loopSnippets();
+        for (var i = 0; i < 100; i++) {
+            window.clearInterval(i);
+        }
         interval = setInterval(loopSnippets, 8000);
     } else {
-        clearInterval(interval);
+        for (var i = 0; i < 100; i++) {
+            window.clearInterval(i);
+        }
     }
 }
 
@@ -146,13 +156,16 @@ $("#lyric-button").click(function () {
         ShowSongList();
         songListShowing = true;
         $(this).text("Hide Song List");
+        ClearAllIntervals();
     } else {
         $("#snippet-container").fadeOut("fast", function () {
-            LoopSnippets(true);
+            ClearAllIntervals();
             songListShowing = false;
+            LoopSnippets(true);
         });
         $(this).text("Show Song List");
     }
+    
 });
 
 function ShowLyrics() {
@@ -203,6 +216,7 @@ function ShowLyrics() {
         if (s < 10) {
             s = "0" + s;
         }
+        this.volume = parseFloat(($("#volume-bar").val()) / 10)
         $("#song-length").text(m + ":" + s);
     });
 
@@ -281,7 +295,7 @@ function FillYouTubeContainer(index) {
     $youTubeLinkUrl.attr("src", youTubeLinks[index].url);
     $youTubeLinkCaption.html(youTubeLinks[index].caption);
 
-    IEHack();
+    
 }
 
 function IEHack() {
@@ -298,6 +312,7 @@ function IEHack() {
         $youTubeLinkUrl.width(300);
         $youTubeLinkCaption.width(300);
     }
+
 }
 
 
