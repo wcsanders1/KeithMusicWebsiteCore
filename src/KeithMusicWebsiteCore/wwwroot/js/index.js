@@ -266,6 +266,9 @@ function PositionLyrics() {
     if (pageSize == 1) {
         if (page == "index") {
             $("#lyric-button").after($lyricAndControlsContainer);
+        } else if (page == "news") {
+            $("#past-news").after($lyricAndControlsContainer);
+            $lyricAndControlsContainer.css("margin-bottom", 100 + "px");
         } else if (page == "about") {
             $("#about-container").after($lyricAndControlsContainer);
             $lyricAndControlsContainer.css("margin-bottom", 100 + "px");

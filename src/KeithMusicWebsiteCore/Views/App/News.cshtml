@@ -1,24 +1,80 @@
-﻿@{
-    ViewBag.Title = "News";
-}
+﻿@model List<KeithMusicWebsiteCore.Models.News>
 
-<link rel="stylesheet" href="~/css/news.css?v={random number/string}" type="text/css" />
+<link rel="stylesheet" href="~/css/news.css" type="text/css" />
 
 <div id="future-news" class="news-container">
     <h2 class="news-headline">
         Musics To Be
     </h2>
-    <ul id="future-news-list">
+    <div class="news-list-container">
+        <ul id="future-news-list">
+            @{
+                bool futureShow = false;
+                foreach (var news in Model)
+                {
+                    if (news.Date >= DateTime.Today)
+                    {
+                        futureShow = true;
+                        <li>
+                            <p>
+                                When:  <span class="red">@news.Date.ToString("dddd, MMMM dd, yyyy, h:mm tt")</span>
+                            </p>
+                            <p>
+                                Where:         @news.Location
+                            </p>
+                            <p>
+                                @news.Description
+                            </p>
+                            <div>
+                                @Html.Raw(news.MiscHtml)
+                            </div>
+                        </li>
+                    }
+                }
+                if (!futureShow)
+                {
+                    <li>
+                        <p>Keith are no shows scheduled.</p>
+                        <p>Please check again later.</p>
+                    </li>
 
-    </ul>
+                }
+            }
+        </ul>
+
+
+    </div>
 </div>
 <div id="past-news" class="news-container">
     <h2 class="news-headline">
         Musics Past
     </h2>
-    <ul id="past-news-list">
-
-    </ul>
+    <div class="news-list-container">
+        <ul id="past-news-list">
+            @{
+                foreach (var news in Model)
+                {
+                    if (news.Date < DateTime.Today)
+                    {
+                        <li>
+                            <p>
+                                When:  <span class="red">@news.Date.ToString("dddd, MMMM dd, yyyy, h:mm tt")</span>
+                            </p>
+                            <p>
+                                Where:  @news.Location
+                            </p>
+                            <p>
+                                @news.Description
+                            </p>
+                            <div>
+                                @Html.Raw(news.MiscHtml)
+                            </div>
+                        </li>
+                    }
+                }
+            }
+        </ul>
+    </div>
 </div>
 
 <script>

@@ -78,6 +78,7 @@ $(window).resize(function () {
 
 $("#index").click(function () {
     ClearAllIntervals();
+    document.title = "Keith Sanders - Music";
     if (lyricsShowing && pageSize == 1) {
         //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
@@ -120,7 +121,8 @@ $("#index").click(function () {
 });
 
 $("#news").click(function () {
-    window.clearInterval(interval);
+    ClearAllIntervals();
+    document.title = "Keith Sanders - News";
     if (lyricsShowing && pageSize == 1) {
         //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
@@ -133,7 +135,8 @@ $("#news").click(function () {
         $("body").append($lyricAndControlsContainer);
         $("#view-container").empty();
         $("#view-container").load("/App/News", function () {
-            $("#view-container").append($lyricAndControlsContainer);
+            $("#past-news").after($lyricAndControlsContainer);
+            $lyricAndControlsContainer.css("margin-bottom", 100 + "px");
             if (isPlaying) {
                 audio.play();
             }
@@ -148,7 +151,8 @@ $("#news").click(function () {
 });
 
 $("#about").click(function () {
-    window.clearInterval(interval);
+    ClearAllIntervals();
+    document.title = "Keith Sanders - About";
     if (lyricsShowing && pageSize == 1) {
         //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");

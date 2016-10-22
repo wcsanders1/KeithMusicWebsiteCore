@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using KeithMusicWebsiteCore.Models;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,12 +18,14 @@ namespace KeithMusicWebsiteCore.Controllers.Web
         public IActionResult PartialIndex()
         {
             return PartialView();
-
         }
 
         public IActionResult News()
         {
-            return PartialView();
+            List<News> news = NewsSeedData.GetNews();
+            news.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
+
+            return PartialView(news);
         }
 
         public IActionResult About()
@@ -30,9 +33,9 @@ namespace KeithMusicWebsiteCore.Controllers.Web
             return PartialView();
         }
 
-        public IActionResult AudioControls()
-        {
-            return PartialView();
-        }
+        //public IActionResult AudioControls()
+        //{
+        //    return PartialView();
+        //}
     }
 }
