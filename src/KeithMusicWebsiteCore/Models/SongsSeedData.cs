@@ -91,6 +91,15 @@ namespace KeithMusicWebsiteCore.Models
                     AudioFileOGG = "/audio/WickedWin/ogg",
                     Lyrics = "Oh Lord, light me up and knock me down.<br>Kick me when I'm on the ground.<br>You tell me that it's over now.<br>Cause I've been sleeping on my own today,<br>standing in a strange place,<br>carry on another way.<br>Oh man better cut my loss,<br>better cut this cross,<br>better reel it in.<br>Kills me to let the wicked win.<br>Somebody let the devil in again.<br>Kills me to let the wicked win.<br>I've been banging on my highest wall,<br>sleeping in a crowded hall,<br>living, I don't care at all.<br>And I know everybody's got to fight,<br>everything is on the line,<br>and everybody's losing time.<br>Oh man better cut my loss,<br>better cut this cross,<br>better reel it in.<br>Kills me to let the wicked win.<br>Somebody let the devil in again.<br>Kills me to let the wicked win.",
                     Snippet = "Somebody let the devil in again.<br>Kills me to let the wicked win."
+                },
+                new Song
+                {
+                    Id = 9,
+                    Title = "Lapiz Lazuli",
+                    AudioFileMP3 = "/audio/LapisLazuli.mp3",
+                    AudioFileOGG = "/audio/LapisLazuli.ogg",
+                    Lyrics = "So long<br>my aching heart,<br>it was sweet while the pain was new,<br>but for now<br>I'll meet you further down the road.<br>And farewell<br>to your sorrows to.<br>I've been wasting my life on you,<br>and I can't lie I<br>must be gone before I'm through.<br>Carry your cross,<br>I don't want to be holy.<br>You can count up your loss,<br>but it's one only.<br>And I'll find new ways to<br>get lonely without you.<br>I'll get lonely without you.<br>Goodybye to your<br>siren song.<br>This kind of love can lose its charm<br>and leave you to mark the hour upon the wall.<br>Deliver in the arms of heaven<br>when I get my shit together.<br>A drowning man in a deep blue sea<br>trying to hold together soul and body.",
+                    Snippet = "Carry your cross,<br>I don't want to be holy."
                 }
             };
             return songs;
