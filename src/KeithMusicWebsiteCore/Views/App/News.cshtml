@@ -17,10 +17,10 @@
                         futureShow = true;
                         <li>
                             <p>
-                                When:  <span class="red">@news.Date.ToString("dddd, MMMM dd, yyyy, h:mm tt")</span>
+                                When: &nbsp;<span class="red">@news.Date.ToString("dddd, MMMM dd, yyyy, h:mm tt")</span>
                             </p>
                             <p>
-                                Where:         @news.Location
+                                Where: &nbsp;@news.Location
                             </p>
                             <p>
                                 @news.Description
@@ -52,22 +52,22 @@
     <div class="news-list-container">
         <ul id="past-news-list">
             @{
-                foreach (var news in Model)
+                for (int i = Model.Count - 1; i >= 0; i--)  //use for loop to reverse order
                 {
-                    if (news.Date < DateTime.Today)
+                    if (Model[i].Date < DateTime.Today)
                     {
                         <li>
                             <p>
-                                When:  <span class="red">@news.Date.ToString("dddd, MMMM dd, yyyy, h:mm tt")</span>
+                                When: &nbsp;<span class="red">@Model[i].Date.ToString("dddd, MMMM dd, yyyy, h:mm tt")</span>
                             </p>
                             <p>
-                                Where:  @news.Location
+                                Where: &nbsp;@Model[i].Location
                             </p>
                             <p>
-                                @news.Description
+                                @Model[i].Description
                             </p>
                             <div>
-                                @Html.Raw(news.MiscHtml)
+                                @Html.Raw(Model[i].MiscHtml)
                             </div>
                         </li>
                     }

@@ -14,17 +14,18 @@
     max-width: 100%;
 }
 
-/*.news-container li,
-.news-container p,
-.news-container a,
-.news-container div {
-    max-width: 100%;
-    flex-wrap: wrap;
-    margin: 0;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.1em;
-    color:#D9D9D9;
-}*/
+.news-container li {
+    margin: 50px 10px;
+}
+
+.news-list-container a {
+    text-decoration: none;
+    color: #FFFFCC;
+}
+
+.news-list-container a:hover {
+    opacity: .5;
+}
 
 .news-list-container {
     max-height: 400px;

@@ -5,7 +5,7 @@ var
     currentYouTubeLink,
     interval;
 
-var songListShowing = false;
+songListShowing = false;
 
 /*******************  audio controls  ******************************/
 
@@ -82,31 +82,31 @@ function LoopSnippets(loop) {
 
         if (songListShowing) {
             return;
+        } else {
+            $snippetContainer.fadeOut("slow", function () {
+                $snippetContainer.empty();
+                $snippetContainer.css("max-height", "initial");
+                $snippetContainer.css("-ms-overflow-style", "-ms-autohiding-scrollbar");
+                var $lyric;
+                var $title;
+                var $newSnippet = $("<div></div>");
+
+                if (index < songsDB.length - 1) {
+                    index += 1;
+                } else {
+                    index = 0;
+                }
+
+                $lyric = $("<p id='snippet-lyric'>" + songsDB[index].snippet + "</p>");
+                $title = $("<p id='snippet-title'>" + songsDB[index].title + "</p>");
+                $newSnippet.append($lyric);
+                $newSnippet.append($title);
+                $newSnippet.attr("id", "snippet" + index);
+                $newSnippet.click(ShowLyrics);
+                $snippetContainer.append($newSnippet);
+                $snippetContainer.fadeIn("slow");
+            });
         }
-
-        $snippetContainer.fadeOut("slow", function () {
-            $snippetContainer.empty();
-            $snippetContainer.css("max-height", "initial");
-            $snippetContainer.css("-ms-overflow-style", "-ms-autohiding-scrollbar");
-            var $lyric;
-            var $title;
-            var $newSnippet = $("<div></div>");
-
-            if (index < songsDB.length - 1) {
-                index += 1;
-            } else {
-                index = 0;
-            }
-
-            $lyric = $("<p id='snippet-lyric'>" + songsDB[index].snippet + "</p>");
-            $title = $("<p id='snippet-title'>" + songsDB[index].title + "</p>");
-            $newSnippet.append($lyric);
-            $newSnippet.append($title);
-            $newSnippet.attr("id", "snippet" + index);
-            $newSnippet.click(ShowLyrics);
-            $snippetContainer.append($newSnippet);
-            $snippetContainer.fadeIn("slow");
-        });
     };
 
     if (loop) {
@@ -135,7 +135,7 @@ function ShowSongList() {
 
     $songListContainer.append($songList);
 
-    LoopSnippets(false);
+    //LoopSnippets(false);
 
     $snippetContainer.fadeOut("fast", function () {
         $snippetContainer.empty();
@@ -147,23 +147,25 @@ function ShowSongList() {
 
 }
 
-$("#lyric-button").click(function () {
+$("body").on("click", "#lyric-button", function () {
     if ($("#snippet-container").css("opacity") < 1) {
         return;
     }
 
     if (!songListShowing) {
+        ClearAllIntervals();
         ShowSongList();
         songListShowing = true;
-        $(this).text("Hide Song List");
-        ClearAllIntervals();
+        $("#lyric-button").text("Hide Song List");
+        console.log("logging");
     } else {
         $("#snippet-container").fadeOut("fast", function () {
             ClearAllIntervals();
             songListShowing = false;
             LoopSnippets(true);
         });
-        $(this).text("Show Song List");
+        $("#lyric-button").text("Show Song List");
+        console.log("logging 2");
     }
     
 });
@@ -375,8 +377,3 @@ function SlideYouTubeLinks(direction) {
         });
     }
 }
-
-
-/***********************  Audio Controls   ************************************/
-
-

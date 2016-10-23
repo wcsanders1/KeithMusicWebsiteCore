@@ -14,14 +14,14 @@ namespace KeithMusicWebsiteCore.Models
                 new YouTubeLink
                 {
                     Id = 0,         //get rid of this when making database
-                    Headline = "Meadowbrook, New Hampshire",
+                    Headline = "Bank of NH Pavilion in Gilford, New Hampshire",
                     Url = "https://www.youtube.com/embed/Qdgqi5QHbEo",
                     Caption = "Playing <span class='italics'>Gates of Night</span> during the opening set for Don Felder, Foreigner, and Styx on July 6, 2014"
                 },
                 new YouTubeLink
                 {
                     Id = 1,
-                    Headline = "Meadowbrook, New Hampshire",
+                    Headline = "Bank of NH Pavilion in Gilford, New Hampshire",
                     Url = "https://www.youtube.com/embed/p-N0_y93yzg",
                     Caption = "Playing <span class='italics'>Strychnine</span> during the opening set for Don Felder, Foreigner, and Styx on July 6, 2014"
                 },
