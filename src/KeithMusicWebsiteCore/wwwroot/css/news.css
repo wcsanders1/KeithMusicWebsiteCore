@@ -1,9 +1,14 @@
-﻿.red {
+﻿/*************************************************************************************************************************
+    CELLPHONE SIZE    (PAGE-SIZE 1)
+*************************************************************************************************************************/
+
+.red {
     color: #FF0000;
 }
 
 .news-container {
     margin: 0 20px 40px 0;
+        -webkit-align-self: center;
     align-self: center;
     width: 75%;
     max-width: 75%;
@@ -39,6 +44,7 @@
 
 .news-headline {
     max-width: 100%;
+        -webkit-flex-wrap: wrap;
     flex-wrap: wrap;
     margin: 0;
     font-family: 'IM Fell English SC', serif;
@@ -48,6 +54,7 @@
     font-size: 2.5em;
 }
 
+#past-news .news-list-container,
 #past-news-list {
     margin-bottom: 75px;
 }
@@ -62,7 +69,7 @@
         margin-left: 500px;
         margin-top: 200px;
         width: calc(100% - 500px);
-        /*height: 100%;*/
+            -webkit-flex-grow: 0;
         flex-grow: 0;
         height: inherit;
     }
@@ -77,6 +84,7 @@
 @media screen and (min-width: 1450px) {
 
     .news-container {
+            -webkit-align-self: flex-start;
         align-self: flex-start;
         margin: 0 auto;
         width: 40%;

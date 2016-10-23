@@ -1,22 +1,4 @@
-﻿@media screen and (min-width: 1450px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    #youtube-link {
-        width: 500px !important;
-    }
-
-    #youtube-link-headline,
-    #youtube-link-caption {
-        width: 500px !important;
-    }
-
-    #youtube-link-url {
-        width: 500px !important;
-    }
-}
-
-
-
-
-/******************************************
+﻿/******************************************
     FONTS
 ******************************************/
 
@@ -76,6 +58,7 @@ footer {
         display: -webkit-flex;
     display: flex;
         -webkit-justify-content: space-between;
+        -webkit-align-items: center;
         -webkit-flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -99,6 +82,8 @@ footer {
 
 
 #footer-name-email-container {
+        display: -webkit-flex;
+        -webkit-flex-direction: column;
     display: flex;
     flex-direction: column;
 }
@@ -225,7 +210,6 @@ footer {
         display: -webkit-flex;
     display: flex;
         -webkit-flex-direction: column;
-        -webkit-text-align: center;
     flex-direction: column;
     text-align: center;
 }
@@ -237,6 +221,9 @@ footer {
 ****************************************************************************************************************/
 
 #audio-container {
+        display: -webkit-flex;
+        -webkit-flex-direction: row;
+        -webkit-align-items: center;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -247,6 +234,10 @@ footer {
 }
 
 #progress-container {
+        display: -webkit-flex;
+        -webkit-flex-direction: row;
+        -webkit-align-items: center;
+        -webkit-justify-content: center;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -257,6 +248,10 @@ footer {
 }
 
 #progress-label {
+        display: -webkit-flex;
+        -webkit-flex-direction: column;
+        -webkit-align-items: center;
+        -webkit-justify-content: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -297,6 +292,8 @@ footer {
 }
 
 #volume-container {
+        display: -webkit-flex;
+        -webkit-flex-direction: row;
 	display: flex;
 	flex-direction: row;
 	width: 15%;
@@ -305,6 +302,7 @@ footer {
 }
 
 #volume-icon {
+        -webkit-align-self: center;
 	align-self: center;
 	position: relative;
     margin-left: 2px;
@@ -344,16 +342,12 @@ footer {
     }
 }
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {  /* ie only */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {  /* IE only */
     #volume-bar {
         height:auto;
         width: 45px !important;
 	    margin-left: 5px;
-        /*-ms-transform: rotate(90deg);
-        -webkit-transform: rotate(90deg);*/
-	    /*transform: rotate(90deg);*/
 	    align-self: center;
-	    /*-webkit-appearance: none !important;*/
         background-color: gray;
 	    position: static;
 	    left: -5px;
@@ -366,20 +360,11 @@ footer {
     }
 }
 
-@media screen and (min-width: 860px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {  /***  IE only  ***/
-    #volume-bar {
-        margin-left: 18px;
-        position: absolute;
-        bottom: -5px;
-
-    }
-
-    #volume-icon {
-        display: inline-flex;
-    }
-}
-
 #audio-buttons-container {
+        display: -webkit-flex;
+        -webkit-flex-direction: row;
+        -webkit-justify-content: space-between;
+        -webkit-align-items: center;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -393,6 +378,10 @@ footer {
 	 height: 80%;
 	 border: 1px black solid;
 	 background-color: #666;
+        display: -webkit-flex;
+        -webkit-flex-direction: column;
+        -webkit-justify-content: center;
+        -webkit-align-items: center;
 	 display: flex;
 	 flex-direction: column;
 	 align-items: center;
@@ -406,10 +395,6 @@ footer {
 
  .audio-buttons:hover {
      cursor: pointer;
- }
- 
- #play-pause-button {
-	 
  }
  
  #exit-button {
@@ -503,18 +488,18 @@ footer {
     }
 }
 
-/*@media screen and (mid-width: 860px) and (-ms-high-contrast: none) and (-ms-high-contrast: active) { /* ie only */
+@media screen and (min-width: 860px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {  /***  IE only  ***/
+    #volume-bar {
+        margin-left: 18px;
+        position: absolute;
+        bottom: -5px;
 
-  /*this doesn't work*/
-        /*#volume-bar {
-            margin-left: 10px;
-        }
+    }
 
-        #volume-icon {
-            display: inline-block;
-        }*/
- 
-/*}*/
+    #volume-icon {
+        display: inline-flex;
+    }
+}
 
 
 /****************************************************************************************************************
@@ -535,5 +520,20 @@ footer {
         width: 35px;
         height: 35px;
         margin: 0 15px;
+    }
+}
+
+@media screen and (min-width: 1450px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {  /* IE only */
+    #youtube-link {
+        width: 500px !important;
+    }
+
+    #youtube-link-headline,
+    #youtube-link-caption {
+        width: 500px !important;
+    }
+
+    #youtube-link-url {
+        width: 500px !important;
     }
 }

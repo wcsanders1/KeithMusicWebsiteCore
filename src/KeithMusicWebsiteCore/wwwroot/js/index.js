@@ -157,7 +157,6 @@ $("body").on("click", "#lyric-button", function () {
         ShowSongList();
         songListShowing = true;
         $("#lyric-button").text("Hide Song List");
-        console.log("logging");
     } else {
         $("#snippet-container").fadeOut("fast", function () {
             ClearAllIntervals();
@@ -165,7 +164,6 @@ $("body").on("click", "#lyric-button", function () {
             LoopSnippets(true);
         });
         $("#lyric-button").text("Show Song List");
-        console.log("logging 2");
     }
     
 });

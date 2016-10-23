@@ -1,24 +1,11 @@
-﻿@media screen and (min-width: 1450px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    #youtube-link {
-        width: 500px !important;
-    }
-
-    #youtube-link-headline,
-    #youtube-link-caption {
-        width: 500px !important;
-    }
-
-    #youtube-link-url {
-        width: 500px !important;
-    }
-}
-
-
-/*************************************************************************************************************************
+﻿/*************************************************************************************************************************
     CELLPHONE SIZE    (PAGE-SIZE 1)
 *************************************************************************************************************************/
 
 #view-container {
+        display: -webkit-flex;
+        -webkit-flex-direction: column;
+        -webkit-align-items: center;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -103,7 +90,7 @@
 
 #lyric-button {
     font-family: 'IM Fell English SC', serif;
-    font-size: 1em;
+    font-size: 2em;
     color: #FFFFCC;
 }
 
@@ -113,7 +100,6 @@
 
 #lyric-and-controls-container {
     height: 400px;
-    /*width: 80%;*/
     width: 300px;
         -webkit-align-self: center;
     align-self: center;
@@ -164,6 +150,7 @@
         display: -webkit-flex;
     display: flex;
         -webkit-flex-direction: column;
+        -webkit-align-items: center;
     flex-direction: column;
     align-items: center;
     margin: 40px 0;
@@ -233,6 +220,7 @@
 }
 
 #youtube-video-container {
+        display: -webkit-flex;
     display: flex;
     overflow: hidden;
     margin-bottom: 15px;
@@ -261,6 +249,7 @@
     #view-container {
         margin-left: 500px;
         margin-top: 200px;
+            -webkit-flex-grow: 1;
         flex-grow: 1;
         overflow-y: auto;
         height: inherit;
@@ -271,6 +260,7 @@
         height: 100%;
         margin-top: 200px;
         position: fixed;
+            -webkit-align-self: auto;
         align-self: auto;
     }
 
@@ -284,6 +274,7 @@
 
     #snippet-lyric-album-container {
         margin-bottom: 50px;
+            -webkit-flex-shrink: 0;
         flex-shrink: 0;
     }
 
@@ -298,6 +289,7 @@
 
     #youtube-link {
         margin: 0;
+            -webkit-flex-shrink: 0;
         flex-shrink: 0;
     }
 
@@ -334,12 +326,14 @@
     }
 
     #snippet-lyric-album-container {
+            -webkit-align-self: flex-start;
         align-self: flex-start;
         height: 90%;
         margin-top: 0;
     }
 
     #snippet-container {
+            -webkit-flex-shrink: 0;
         flex-shrink: 0;
     }
 
@@ -347,6 +341,7 @@
         margin-left: auto;
         margin-right: auto;
         margin-top: 0;
+            -webkit-align-self: flex-start;
         align-self: flex-start;
         width: 500px;
     }
@@ -359,5 +354,20 @@
     #youtube-link-url {
         width: 500px;
         height: 300px;
+    }
+}
+
+@media screen and (min-width: 1450px) and (-ms-high-contrast: none), (-ms-high-contrast: active) {   /*  IE only  */
+    #youtube-link {
+        width: 500px !important;
+    }
+
+    #youtube-link-headline,
+    #youtube-link-caption {
+        width: 500px !important;
+    }
+
+    #youtube-link-url {
+        width: 500px !important;
     }
 }

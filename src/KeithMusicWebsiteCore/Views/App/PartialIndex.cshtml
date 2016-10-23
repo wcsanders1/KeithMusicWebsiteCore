@@ -1,14 +1,13 @@
 ﻿@{ 
     ViewBag.Title = "Music";
 }
-<link rel="stylesheet" type="text/css" href="~/css/index.css" />
+<link rel="stylesheet" type="text/css" href="~/css/index.css?v={random number/string}" />
 
 <div id="snippet-lyric-album-container">
     <div id="snippet-container"></div>
     <div id="lyric-button-container">
         <p id="lyric-button">Show Song List</p>
     </div>
-    @*<div id="lyric-and-controls-container"></div>*@
     <div id="album-and-headline-container">
         <h2 id="album-container-headline">Albums</h2>
         <div id="album-container">
@@ -21,14 +20,12 @@
                 </a>
             </div>
             <div id="album2">
-                <div id="album2">
-                    <a href="http://www.cdbaby.com/cd/keithsanders5" target="_blank">
-                        <div class="album-image">
-                            <img src="~/img/traveler-at-the-gates-of-night.jpg" />
-                            <p>Traveler at the Gates of Night</p>
-                        </div>
-                    </a>
-                </div>
+                <a href="http://www.cdbaby.com/cd/keithsanders5" target="_blank">
+                    <div class="album-image">
+                        <img src="~/img/traveler-at-the-gates-of-night.jpg" />
+                        <p>Traveler at the Gates of Night</p>
+                    </div>
+                </a>
             </div>
         </div>
     </div>

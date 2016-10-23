@@ -47,15 +47,14 @@ img {
         margin-left: 500px;
         margin-top: 200px;
         width: calc(100% - 500px);
-        /*height: 100%;*/
+            -webkit-flex-grow: 0;
         flex-grow: 0;
         height: inherit;
     }
 
     #about-container {
+            -webkit-flex-shrink: 0;
         flex-shrink: 0;
-        /*flex-grow: 1;
-        min-height: 100%;*/
     }
 
     #about-container,
