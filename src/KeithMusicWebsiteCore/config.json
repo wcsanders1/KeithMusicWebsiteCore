@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "SiteContextConnection": "Server=(localdb)\\MSSQLLocalDB;Database=KeithMusicSiteDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+  }
+}

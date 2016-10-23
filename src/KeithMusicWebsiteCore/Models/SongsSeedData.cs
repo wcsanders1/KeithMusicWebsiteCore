@@ -7,13 +7,29 @@ namespace KeithMusicWebsiteCore.Models
 {
     public class SongsSeedData
     {
+        private SiteContext _context;
+
+        public SongsSeedData(SiteContext context)
+        {
+            _context = context;
+        }
+
+        public async Task EnsureSeedDataSongs()
+        {
+            if (!_context.Songs.Any())
+            {
+                List<Song> songs = GetSongs();
+                _context.Songs.AddRange(songs);
+                await _context.SaveChangesAsync();
+            }
+        }
         static public List<Song> GetSongs()
         {
             List<Song> songs = new List<Song>()
             {
                 new Song
                 {
-                    Id = 0,         //get rid of this when making database
+                    //Id = 0,         //get rid of this when making database
                     Title = "Last Train",
                     AudioFileMP3 = "/audio/LastTrain.mp3",
                     AudioFileOGG = "/audio/LastTrain.ogg",
@@ -22,7 +38,7 @@ namespace KeithMusicWebsiteCore.Models
                 },
                 new Song
                 {
-                    Id = 1,
+                    //Id = 1,
                     Title = "Searchlight",
                     AudioFileMP3 = "/audio/Searchlight.mp3",
                     AudioFileOGG = "/audio/Searchlight.ogg",
@@ -31,7 +47,7 @@ namespace KeithMusicWebsiteCore.Models
                 },
                 new Song
                 {
-                    Id = 2,
+                    //Id = 2,
                     Title = "Beholder",
                     AudioFileMP3 = "/audio/Beholder.mp3",
                     AudioFileOGG = "/audio/Beholder.ogg",
@@ -40,7 +56,7 @@ namespace KeithMusicWebsiteCore.Models
                 },
                 new Song
                 {
-                    Id = 3,
+                    //Id = 3,
                     Title = "Live Alone",
                     AudioFileMP3 = "/audio/LiveAlone.mp3",
                     AudioFileOGG = "/audio/LiveAlone.ogg",
@@ -49,7 +65,7 @@ namespace KeithMusicWebsiteCore.Models
                 },
                 new Song
                 {
-                    Id = 4,
+                    //Id = 4,
                     Title = "Idol",
                     AudioFileMP3 = "/audio/Idol.mp3",
                     AudioFileOGG = "/audio/Idol.ogg",
@@ -58,7 +74,7 @@ namespace KeithMusicWebsiteCore.Models
                 },
                 new Song
                 {
-                    Id = 5,
+                    //Id = 5,
                     Title = "Hit",
                     AudioFileMP3 = "/audio/Hit.mp3",
                     AudioFileOGG = "/audio/Hit.ogg",
@@ -67,7 +83,7 @@ namespace KeithMusicWebsiteCore.Models
                 },
                 new Song
                 {
-                    Id = 6,
+                    //Id = 6,
                     Title = "Hanging Gardens",
                     AudioFileMP3 = "/audio/HangingGardens.mp3",
                     AudioFileOGG = "/audio/HangingGardens.ogg",
@@ -76,7 +92,7 @@ namespace KeithMusicWebsiteCore.Models
                 },
                 new Song
                 {
-                    Id = 7,
+                    //Id = 7,
                     Title = "Wearing a Dead Man's Clothes",
                     AudioFileMP3 = "/audio/DeadMan.mp3",
                     AudioFileOGG = "/audio/DeadMan.ogg",
@@ -85,7 +101,7 @@ namespace KeithMusicWebsiteCore.Models
                 },
                 new Song
                 {
-                    Id = 8,
+                    //Id = 8,
                     Title = "Wicked Win",
                     AudioFileMP3 = "/audio/WickedWin.mp3",
                     AudioFileOGG = "/audio/WickedWin/ogg",
@@ -94,12 +110,21 @@ namespace KeithMusicWebsiteCore.Models
                 },
                 new Song
                 {
-                    Id = 9,
+                    //Id = 9,
                     Title = "Lapiz Lazuli",
                     AudioFileMP3 = "/audio/LapisLazuli.mp3",
                     AudioFileOGG = "/audio/LapisLazuli.ogg",
                     Lyrics = "So long<br>my aching heart,<br>it was sweet while the pain was new,<br>but for now<br>I'll meet you further down the road.<br>And farewell<br>to your sorrows to.<br>I've been wasting my life on you,<br>and I can't lie I<br>must be gone before I'm through.<br>Carry your cross,<br>I don't want to be holy.<br>You can count up your loss,<br>but it's one only.<br>And I'll find new ways to<br>get lonely without you.<br>I'll get lonely without you.<br>Goodybye to your<br>siren song.<br>This kind of love can lose its charm<br>and leave you to mark the hour upon the wall.<br>Deliver in the arms of heaven<br>when I get my shit together.<br>A drowning man in a deep blue sea<br>trying to hold together soul and body.",
                     Snippet = "Carry your cross,<br>I don't want to be holy."
+                },
+                new Song
+                {
+                    //Id = 10,
+                    Title = "Irish Girl",
+                    AudioFileMP3 = "/audio/IrishGirl.mp3",
+                    AudioFileOGG = "/audio/IrishGirl.ogg",
+                    Lyrics = "Jack was my mother's great grandfather.<br>Came over from Ireland as a kid.<br>Met an American girl and they got married.<br>They're buried in the Allegheny Cemetery.<br>Now ain't it funny<br>how the wide old world turns around.<br>I want to pack my things and go to Ireland.<br>An American man with a bad accent<br>and the vaguest of plans<br>for an Irish girl.<br>There's no story to my last name.<br>I'm a little bit of everything.<br>Growing up in America that stuff doesn't matter,<br>you just know you came from some people running from something.<br>I want to leave New York and sail to Ireland.<br>Trace the route those ships took back in 1910.<br>See the place they say Ulysses lived and wept<br>for an Irish girl,<br>for the love of an Irish girl.<br>I'm doing ok.<br>I'm in Belfast today,<br>and I see the rain,<br>see the rain,<br>see the rain.<br>And in little wings on the graves of kings,<br>such sweet things,<br>sad things,<br>old words,<br>about an Irish girl.<br>For an Irish girl.",
+                    Snippet = "I'm doing ok.<br>I'm in Belfast today,<br>and I see the rain,<br>see the rain,<br>see the rain."
                 }
             };
             return songs;

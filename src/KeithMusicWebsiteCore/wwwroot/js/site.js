@@ -387,3 +387,11 @@ function ClearAllIntervals() {
         window.clearInterval(i);
     }
 }
+
+$("body").on("click dbclick", "#youtube-link-left-button", function () {
+    SlideYouTubeLinks("left");
+});
+
+$("body").on("click dbclick", "#youtube-link-right-button", function () {
+    SlideYouTubeLinks("right");
+});

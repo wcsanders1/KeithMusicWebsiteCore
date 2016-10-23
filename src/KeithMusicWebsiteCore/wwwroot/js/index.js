@@ -322,13 +322,7 @@ function IEHack() {
 
 
 /************************   SLIDE YOUTUBE LINKS   ******************************************/
-$("#youtube-link-left-button").on("click dblclick", function () {
-    SlideYouTubeLinks("left");    
-});
 
-$("#youtube-link-right-button").on("click dblclick", function () {
-    SlideYouTubeLinks("right");
-});
 
 var sliding = false;
 
