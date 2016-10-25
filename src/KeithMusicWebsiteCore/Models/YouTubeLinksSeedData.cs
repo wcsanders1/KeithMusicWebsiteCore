@@ -16,11 +16,18 @@ namespace KeithMusicWebsiteCore.Models
 
         public async Task EnsureSeedDataYouTubeLinks()
         {
-            if (!_context.YouTubeLinks.Any())
+            try
             {
-                List<YouTubeLink> youTubeLinks = GetYouTubeLinks();
-                _context.YouTubeLinks.AddRange(youTubeLinks);
-                await _context.SaveChangesAsync();
+                if (!_context.YouTubeLinks.Any())
+                {
+                    List<YouTubeLink> youTubeLinks = GetYouTubeLinks();
+                    _context.YouTubeLinks.AddRange(youTubeLinks);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch
+            {
+                return;
             }
         }
         static public List<YouTubeLink> GetYouTubeLinks()

@@ -16,11 +16,18 @@ namespace KeithMusicWebsiteCore.Models
 
         public async Task EnsureSeedDataSongs()
         {
-            if (!_context.Songs.Any())
+            try
             {
-                List<Song> songs = GetSongs();
-                _context.Songs.AddRange(songs);
-                await _context.SaveChangesAsync();
+                if (!_context.Songs.Any())
+                {
+                    List<Song> songs = GetSongs();
+                    _context.Songs.AddRange(songs);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch
+            {
+                return;
             }
         }
         static public List<Song> GetSongs()

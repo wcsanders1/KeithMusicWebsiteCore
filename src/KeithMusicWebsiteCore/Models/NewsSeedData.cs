@@ -16,11 +16,18 @@ namespace KeithMusicWebsiteCore.Models
 
         public async Task EnsureSeedDataNews()
         {
-            if (!_context.NewsItems.Any())
+            try
             {
-                List<News> news = GetNews();
-                _context.NewsItems.AddRange(news);
-                await _context.SaveChangesAsync();
+                if (!_context.NewsItems.Any())
+                {
+                    List<News> news = GetNews();
+                    _context.NewsItems.AddRange(news);
+                    await _context.SaveChangesAsync();
+                }
+            }
+            catch
+            {
+                return;
             }
         }
         static public List<News> GetNews()

@@ -31,7 +31,16 @@ namespace KeithMusicWebsiteCore.Controllers.Web
 
         public IActionResult News()
         {
-            List<News> news = _context.NewsItems.ToList();
+            List<News> news = new List<News>();
+
+            try
+            {
+                news = _context.NewsItems.ToList();
+            }
+            catch
+            {
+                news = NewsSeedData.GetNews();
+            }
             news.Sort((x, y) => DateTime.Compare(x.Date, y.Date));
 
             return PartialView(news);

@@ -24,9 +24,14 @@ namespace KeithMusicWebsiteCore.Controllers.Data
         {
             _allSongs = new List<Song>();
 
-            //_allSongs = SongsSeedData.GetSongs();
-            _allSongs = _context.Songs.ToList();
-
+            try
+            {
+                _allSongs = _context.Songs.ToList();
+            }
+            catch
+            {
+                _allSongs = SongsSeedData.GetSongs();
+            }
             return new JsonResult(_allSongs);
         }
 
@@ -34,8 +39,15 @@ namespace KeithMusicWebsiteCore.Controllers.Data
         {
             _allYouTubeLinks = new List<YouTubeLink>();
 
-            //_allYouTubeLinks = YouTubeLinksSeedData.GetYouTubeLinks();
-            _allYouTubeLinks = _context.YouTubeLinks.ToList();
+            
+            try
+            {
+                _allYouTubeLinks = _context.YouTubeLinks.ToList();
+            }
+            catch
+            {
+                _allYouTubeLinks = YouTubeLinksSeedData.GetYouTubeLinks();
+            }
 
             return new JsonResult(_allYouTubeLinks);
         }
