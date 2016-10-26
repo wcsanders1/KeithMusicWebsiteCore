@@ -401,6 +401,10 @@ footer {
 	 color: red;
  }
 
+ #keith-layout-picture {
+     display: none;
+ }
+
 
 
 /****************************************************************************************************************
@@ -448,6 +452,7 @@ footer {
         height: 100%;
         position: fixed;
         margin-top: 200px;
+        display: block;
     }
 
     #view-and-keith-picture-container {

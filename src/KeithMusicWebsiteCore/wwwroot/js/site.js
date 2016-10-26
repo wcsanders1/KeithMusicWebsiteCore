@@ -16,6 +16,7 @@ var $audioControls = $("<div id='audio-container'><div id='progress-container'><
 /************   SETS HEIGHT OF #view-and-keith-picture-container IN LAYOUT   ******************************/
 
 function SetHeightViewaAndPicture() {
+    pageSize = $("#page-size").css("z-index");
     var $topBannerHeight;
     var $windowHeight;
     var $viewAndKeithPictureContainer = $("#view-and-keith-picture-container");
@@ -150,10 +151,13 @@ $("#news").click(function () {
         });
     } else {
         $("#view-container").empty();
-        $("#view-container").load("/App/News");
+        $("#view-container").load("/App/News", function () {
+            window.resizeBy(-1, 1);  //IE hack
+        });
     }
     page = "news";
     HighlightNavigation(page);
+    
     //SetHeightViewaAndPicture();
 });
 
