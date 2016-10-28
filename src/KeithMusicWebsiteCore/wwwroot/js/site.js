@@ -152,7 +152,8 @@ $("#news").click(function () {
     } else {
         $("#view-container").empty();
         $("#view-container").load("/App/News", function () {
-            window.resizeBy(-1, 1);  //IE hack
+            //window.resizeBy(-1, 1);  //IE hack
+            //window.resizeBy(3, -1);
         });
     }
     page = "news";

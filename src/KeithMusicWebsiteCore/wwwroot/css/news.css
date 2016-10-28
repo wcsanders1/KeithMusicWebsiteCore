@@ -2,6 +2,8 @@
     CELLPHONE SIZE    (PAGE-SIZE 1)
 *************************************************************************************************************************/
 
+@media screen and (min-width: 1px) {
+
 .red {
     color: #FF0000;
 }
@@ -25,7 +27,7 @@
 
 .news-list-container a {
     text-decoration: none;
-    color: #FFFFCC;
+    color: #CC9900;
 }
 
 .news-list-container a:hover {
@@ -39,7 +41,9 @@
     margin: 0;
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.5em;
-    color:#D9D9D9;
+    color: black;
+    box-shadow: inset 0 0 40px rgba(60,60,60, 1);
+    background-color: #D9D9D9;
 }
 
 .news-headline {
@@ -59,11 +63,13 @@
     margin-bottom: 75px;
 }
 
+}
+
 /****************************************************************************************************************
     860px and UP       (PAGE-SIZE 2)
 ****************************************************************************************************************/
 
-@media screen and (min-width: 860px) {
+@media screen and (min-width: 860px) and (orientation: landscape) {
 
     #view-container {
         margin-left: 500px;
@@ -81,7 +87,7 @@
 ****************************************************************************************************************/
 
 
-@media screen and (min-width: 1450px) {
+@media screen and (min-width: 1450px) and (orientation: landscape) {
 
     .news-container {
             -webkit-align-self: flex-start;
@@ -92,6 +98,7 @@
 
     .news-list-container {
         max-height: calc(100vh - 400px);
+		font-size: 2em;
     }
 
     .news-headline {

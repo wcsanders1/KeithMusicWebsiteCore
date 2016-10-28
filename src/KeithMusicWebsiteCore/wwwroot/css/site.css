@@ -1,4 +1,4 @@
-﻿/******************************************
+﻿﻿/******************************************
     FONTS
 ******************************************/
 
@@ -13,6 +13,8 @@
 /********************************************
     GENERAL
 ********************************************/
+
+@media screen and (min-width: 1px) {
 
 .italics {
     font-style: italic;
@@ -342,24 +344,6 @@ footer {
     }
 }
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {  /* IE only */
-    #volume-bar {
-        height:auto;
-        width: 45px !important;
-	    margin-left: 5px;
-	    align-self: center;
-        background-color: gray;
-	    position: static;
-	    left: -5px;
-        bottom: 23px;
-        outline: none;
-    }
-
-    #volume-icon {
-        display: none;
-    }
-}
-
 #audio-buttons-container {
         display: -webkit-flex;
         -webkit-flex-direction: row;
@@ -401,18 +385,32 @@ footer {
 	 color: red;
  }
 
- #keith-layout-picture {
-     display: none;
- }
+}
 
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {  /* IE only */
+    #volume-bar {
+        height:auto;
+        width: 45px !important;
+	    margin-left: 5px;
+	    align-self: center;
+        background-color: gray;
+	    position: static;
+	    left: -5px;
+        bottom: 23px;
+        outline: none;
+    }
 
+    #volume-icon {
+        display: none;
+    }
+}
 
 /****************************************************************************************************************
     860px and UP       (PAGE-SIZE 2)
 ****************************************************************************************************************/
 
 
-@media screen and (min-width: 860px) {
+@media screen and (min-width: 860px) and (orientation: landscape) {
 
     #page-size {
         z-index: 2;
@@ -452,7 +450,6 @@ footer {
         height: 100%;
         position: fixed;
         margin-top: 200px;
-        display: block;
     }
 
     #view-and-keith-picture-container {
@@ -512,7 +509,7 @@ footer {
 ****************************************************************************************************************/
 
 
-@media screen and (min-width: 1450px) {
+@media screen and (min-width: 1450px) and (orientation: landscape) {
     #page-size {
         z-index: 3;
     }

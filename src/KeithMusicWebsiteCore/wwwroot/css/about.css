@@ -2,6 +2,8 @@
     CELLPHONE SIZE    (PAGE-SIZE 1)
 *************************************************************************************************************************/
 
+@media screen and (min-width: 1px) {
+
 #about-container {
         display: -webkit-flex;
     display: flex;
@@ -36,12 +38,14 @@ img {
     height: 200px;
 }
 
+}
+
 
 /****************************************************************************************************************
     860px and UP     (PAGE-SIZE 2)
 ****************************************************************************************************************/
 
-@media screen and (min-width: 860px) {
+@media screen and (min-width: 860px) and (orientation: landscape) {
     
     #view-container {
         margin-left: 500px;
@@ -69,7 +73,7 @@ img {
     1450px and UP     (PAGE-SIZE 3)*/
 /*****************************************************************************************************************/
 
-@media screen and (min-width: 1450px) {
+@media screen and (min-width: 1450px) and (orientation: landscape) {
  
     img{
         width: 300px;
