@@ -75,7 +75,6 @@ $(window).resize(function () {
 
     SetHeightViewaAndPicture();
     $("#volume-bar").focus();   //this is to hack EDGE oddity
-    IEHack();
 });
 
 $("#index").click(function () {
@@ -104,27 +103,29 @@ $("#index").click(function () {
         });
     } else {
         $("#view-container").empty();
-        $("#view-container").load("/App/PartialIndex");
-        
-            /***********  IE Hack; otherwise, IE won't size the view correctly  *****************/
-            window.clearInterval(interval);
-            $("#view-container").empty();
-            $("#view-container").load("/App/PartialIndex");
-            window.clearInterval(interval);
-            $("#view-container").empty();
-            $("#view-container").load("/App/PartialIndex", function () {
-                GetLoopSongs();
-                GetYouTubeLinks();
-            });
+        $("#view-container").load("/App/PartialIndex", function () {
+            GetLoopSongs();
+            GetYouTubeLinks();
             window.clearInterval(interval);
             IEHack();
+        });
+        
+            /***********  IE Hack; otherwise, IE won't size the view correctly  *****************/
+            //window.clearInterval(interval);
+            //$("#view-container").empty();
+            //$("#view-container").load("/App/PartialIndex");
+            //window.clearInterval(interval);
+            //$("#view-container").empty();
+            //$("#view-container").load("/App/PartialIndex", function () {
+
+            //});
+
     }
     if (lyricsShowing) {
         PositionLyrics();
     }
     page = "index";
     HighlightNavigation(page);
-    //SetHeightViewaAndPicture();
 });
 
 $("#news").click(function () {
@@ -152,8 +153,7 @@ $("#news").click(function () {
     } else {
         $("#view-container").empty();
         $("#view-container").load("/App/News", function () {
-            //window.resizeBy(-1, 1);  //IE hack
-            //window.resizeBy(3, -1);
+            IEHack();
         });
     }
     page = "news";
@@ -167,7 +167,6 @@ $("#about").click(function () {
     songListShowing = false;
     document.title = "Keith Sanders - About";
     if (lyricsShowing && pageSize == 1) {
-        //var $lyricAndControlsContainer = $("#lyric-and-controls-container");
         var audio = document.getElementById("audio");
         var isPlaying = false;
 
@@ -187,7 +186,7 @@ $("#about").click(function () {
     } else {
         $("#view-container").empty();
         $("#view-container").load("/App/About", function () {
-            window.resizeBy(-1, 1);
+            IEHack();
         });
     }
     if (lyricsShowing) {
@@ -195,7 +194,6 @@ $("#about").click(function () {
     }
     page = "about";
     HighlightNavigation(page);
-    //SetHeightViewaAndPicture();
 });
 
 function HighlightNavigation(currentPage) {
@@ -218,7 +216,7 @@ function HighlightNavigation(currentPage) {
 /**************************    AUDIO CONTROLS   *********************************/
 
 
-$("body").on("click", "#play-pause-button", function () {
+$("body").on("click touchstart", "#play-pause-button", function () {  //touchstart for iOS
     var audioControl = document.getElementById("audio");
     if (audioControl.paused) {
         audioControl.play();
@@ -232,7 +230,7 @@ $("body").on("click", "#play-pause-button", function () {
     }
 });
 
-$("body").on("click", "#stop-button", function () {
+$("body").on("click touchstart", "#stop-button", function () {
     var audioControl = document.getElementById("audio");
 
     audioControl.pause();
@@ -241,27 +239,27 @@ $("body").on("click", "#stop-button", function () {
     ResetProgressBar();
 });
 
-$("body").on("click", "#back-button", function () {
+$("body").on("click touchstart", "#back-button", function () {
     $("#song-time-played").text("0:00");
     ChangeSong("back");
     ResetProgressBar();
     ResetPlayButton();
 });
 
-$("body").on("click", "#forward-button", function () {
+$("body").on("click touchstart", "#forward-button", function () {
     $("#song-time-played").text("0:00");
     ChangeSong("forward");
     ResetProgressBar();
     ResetPlayButton();
 });
 
-$("body").on("click", "#exit-button", function () {
+$("body").on("click touchstart", "#exit-button", function () {
     ResetPlayButton();
     ResetProgressBar();
     CloseLyricContainer();
 });
 
-$("body").on("click", "#progress-bar", function (e) {
+$("body").on("click touchstart", "#progress-bar", function (e) {
     var audioElement = document.getElementById("audio");
     var leftOffset = e.pageX - $(this).offset().left;
     var songPercents = leftOffset / $("#progress-bar").width();
@@ -388,15 +386,15 @@ function ChangeSong(direction) {
 }
 
 function ClearAllIntervals() {
-    for (var i = 1; i < 100000; i++) {
+    for (var i = 1; i < 10000; i++) {
         window.clearInterval(i);
     }
 }
 
-$("body").on("click dbclick", "#youtube-link-left-button", function () {
+$("body").on("click dbclick touchstart", "#youtube-link-left-button", function () {
     SlideYouTubeLinks("left");
 });
 
-$("body").on("click dbclick", "#youtube-link-right-button", function () {
+$("body").on("click dbclick touchstart", "#youtube-link-right-button", function () {
     SlideYouTubeLinks("right");
 });

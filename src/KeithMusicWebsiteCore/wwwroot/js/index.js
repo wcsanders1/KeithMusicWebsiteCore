@@ -302,20 +302,23 @@ function FillYouTubeContainer(index) {
 }
 
 function IEHack() {
-    var $youtTubeLinkHeadline = $("#youtube-link-headline");
-    var $youTubeLinkUrl = $("#youtube-link-url");
-    var $youTubeLinkCaption = $("#youtube-link-caption");
+    //var $youtTubeLinkHeadline = $("#youtube-link-headline");
+    //var $youTubeLinkUrl = $("#youtube-link-url");
+    //var $youTubeLinkCaption = $("#youtube-link-caption");
 
-    if (pageSize > 2) {
-        $youtTubeLinkHeadline.width(500);
-        $youTubeLinkUrl.width(500);
-        $youTubeLinkCaption.width(500);
-    } else {
-        $youtTubeLinkHeadline.width(300);
-        $youTubeLinkUrl.width(300);
-        $youTubeLinkCaption.width(300);
-    }
-
+    //if (pageSize > 2) {
+    //    $youtTubeLinkHeadline.width(500);
+    //    $youTubeLinkUrl.width(500);
+    //    $youTubeLinkCaption.width(500);
+    //} else {
+    //    $youtTubeLinkHeadline.width(300);
+    //    $youTubeLinkUrl.width(300);
+    //    $youTubeLinkCaption.width(300);
+    //}
+    $ieHackDiv = $("<div></div>");
+    $ieHackDiv.height(100).width(100);
+    $("#view-container").append($ieHackDiv);
+    $ieHackDiv.fadeOut("fast");
 }
 
 
