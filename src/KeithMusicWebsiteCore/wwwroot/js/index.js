@@ -75,7 +75,9 @@ $(window).resize(function () {
 /***********************************   LYRIC AND SONG FUNCTIONS   **********************************************/
 
 function LoopSnippets(loop) {
-    var index = 0;
+    var max = Math.floor(songsDB.length - 1);
+    var index = Math.floor((Math.random() * max));
+
     var $snippetContainer = $("#snippet-container");
 
     var loopSnippets = function () {

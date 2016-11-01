@@ -132,6 +132,54 @@ namespace KeithMusicWebsiteCore.Models
                     AudioFileOGG = "/audio/IrishGirl.ogg",
                     Lyrics = "Jack was my mother's great grandfather.<br>Came over from Ireland as a kid.<br>Met an American girl and they got married.<br>They're buried in the Allegheny Cemetery.<br>Now ain't it funny<br>how the wide old world turns around.<br>I want to pack my things and go to Ireland.<br>An American man with a bad accent<br>and the vaguest of plans<br>for an Irish girl.<br>There's no story to my last name.<br>I'm a little bit of everything.<br>Growing up in America that stuff doesn't matter,<br>you just know you came from some people running from something.<br>I want to leave New York and sail to Ireland.<br>Trace the route those ships took back in 1910.<br>See the place they say Ulysses lived and wept<br>for an Irish girl,<br>for the love of an Irish girl.<br>I'm doing ok.<br>I'm in Belfast today,<br>and I see the rain,<br>see the rain,<br>see the rain.<br>And in little wings on the graves of kings,<br>such sweet things,<br>sad things,<br>old words,<br>about an Irish girl.<br>For an Irish girl.",
                     Snippet = "I'm doing ok.<br>I'm in Belfast today,<br>and I see the rain,<br>see the rain,<br>see the rain."
+                },
+                new Song
+                {
+                    Title = "Itinerary",
+                    AudioFileMP3 = "/audio/Itinerary.mp3",
+                    AudioFileOGG = "/audio/Itinerary.ogg",
+                    Lyrics = "Love came late.<br>I used to know it by another name.<br>I used to drink it like water from my hands.<br>It used to get away.<br>Love came late.<br>Got tired of waiting by the garden gate,<br>so I went walking down a long hallway<br>that kissed the dark in me.<br>Love came late.<br>I used to believe it was closed to me.<br>I used to see it in a stranger's face.<br>It seemed so far away.<br>Eyes in the dark and they're looking at me.<br>Looking at me.<br>Looking at me.<br>And I smile like a shark in a chemical sea.<br>Inevitably.<br>Devastating.<br>Get it.<br>Love came late.<br>Was living out of an old suitcase,<br>on a street with all drawn shades, by a black riverbank.<br>Oh and I was sold and paid,<br>but took no pleasure in a hard-won thing.<br>I showed no mercy on a broken wing.<br>I fell to evil things.<br>Eyes in the dark and they're looking at me.<br>Looking at me.<br>Looking at me.<br>And I float face down in a chemical sea.<br>Inevitably.<br>Devastating.<br>Get it.<br>I'm going to open up that door<br>someday.<br>I'm going to open up that door.",
+                    Snippet = "Love came late.<br>Got tired of waiting by the garden gate,<br>so I went walking down a long hallway<br>that kissed the dark in me."
+                },
+                new Song
+                {
+                    Title = "Baptist",
+                    AudioFileMP3 = "/audio/Baptist.mp3",
+                    AudioFileOGG = "/audio/Baptist.ogg",
+                    Lyrics = "Once I was a raven<br>who flew not far from here.<br>But now I am a craving,<br>and an empty,<br>thoughtless fear.<br>Once I was a favorite of the favored sons.<br>Once I was a lost child of Elijah's blood.<br>But now I am just the warning for someone who's yet to come.<br>Then it will be done.<br>Once I was a raven,<br>sitting on my father's windowsill.<br>I went out in the wilderness.<br>Living off the locust,<br>never filled.<br>Once I was a priest to whom a river flowed.<br>Once I held a crowd in the silence of a tomb.<br>Price put on my head by a harlot and her fool.<br>And it will be soon.<br>Yes it will be soon.<br>Once I was a raven.",
+                    Snippet = "Once I was a raven<br>who flew not far from here.<br>But now I am a craving,<br>and an empty,<br>thoughtless fear."
+                },
+                new Song
+                {
+                    Title = "Let the Grass on My Grave Grow Long",
+                    AudioFileMP3 = "/audio/LetTheGrass.mp3",
+                    AudioFileOGG = "/audio/LetTheGrass.ogg",
+                    Lyrics = "When I'm leaving here,<br>at the end of an old year,<br>plant me in the sun,<br>and let the grass on my grave grow long.<br>When I'm tired I'll rest,<br>and rested I will rise.<br>Like a baby new<br>knows not a disguise.<br>Now I have had my youth,<br>but I won't miss being young.<br>A soul is made to roam.<br>So let the grass on my grave grow long.<br>If I live by myself,<br>or live with someone else,<br>the changing of a face,<br>in sickness and in health.<br>Listen for my name,<br>sounds different every day.<br>Learn to love this place,<br>though I know that I cannot stay.<br>So when I'm leaving here,<br>at the end of an old year,<br>plant me in the sun,<br>and let the grass on my grave grow long.",
+                    Snippet = "Now I have had my youth,<br>but I won't miss being young.<br>A soul is made to roam.<br>So let the grass on my grave grow long."
+                },
+                new Song
+                {
+                    Title = "Witch of Castle Creek",
+                    AudioFileMP3 = "/audio/WitchOfCastleCreek.mp3",
+                    AudioFileOGG = "/audio/WitchOfCastleCreek.ogg",
+                    Lyrics = "Oh I love a rainy night.<br>Think I'll turn on my dim light.<br>Draw a pattern on my floor,<br>let it bring these things to life.<br>Oh I love a rainy night.<br>Think I'll leave these windows wide.<br>Strike a match for a careless soul,<br>let it burn and let it die.<br>Then by the morning,<br>come awake to wreath around my bed.<br>Burned down the candle,<br>still got the smoke up in my head.<br>Oh I love a rainy night,<br>empty streets by riverside.<br>Lay me down between roof and walls,<br>I'll go walk them in my mind.",
+                    Snippet = "Oh I love a rainy night.<br>Think I'll leave these windows wide."
+                },
+                new Song
+                {
+                    Title = "A Way You'll Never Be",
+                    AudioFileMP3 = "/audio/WayYoullNeverBe.mp3",
+                    AudioFileOGG = "/audio/WayYoullNeverBe.ogg",
+                    Lyrics = "Faith has made you blind.<br>Hanging around the same old town<br>just looking for something you'll never find.<br>Trying to do just one good deed.<br>But going out in the crowd<br>it just reminds you of a way you'll never be.<br>Aces stuffed up your sleeves.<br>Staring at all the girls always stamping at the snakes under their feet.<br>Calling down your curses upon every wheel that cries out for the grease.<br>Love with love unchanging<br>something changing like the color of the leaves.<br>You say\"Oh, it's going to cost me my crown.\"<br>But if you see it all so well<br>then tell me why do you still hang around?<br>Tying knots that you can't cut<br>and thinking thoughts that you can't say aloud.<br>You're so proud, proud, proud.<br>Don't they look just like royalty?<br>Just the way you'll never be like.<br>Some get found and some get freed.<br>It's just a way we'll never be like.<br>Lets get high, high, high.<br>A face of such strange beauty.<br>But everytime she speaks it just reminds me of a way I'll never be.<br>Makes me want to get high, high, high.<br>Don't they look like royalty?<br>Just the way I'll never be like.<br>Some get saved and some get a freed,<br>they're just a way I'll never be like.<br>Lets get high, high, high.",
+                    Snippet = "A face of such strange beauty.<br>But everytime she speaks it just reminds me of a way I'll never be."
+                },
+                new Song
+                {
+                    Title = "Two Hearted River",
+                    AudioFileMP3 = "/audio/TwoHeartedRiver.mp3",
+                    AudioFileOGG = "/audio/TwoHeartedRiver.ogg",
+                    Lyrics = "I got a love that aches like the rain,<br>about to overflow the banks.<br>And I got a love that flies straight<br>into the open hands.<br>And I see a road that bends from the sun<br>into a darkened land.<br>And I got a love that hides there,<br>yeah I got a place to stay.<br>Oh hide you two-sided face.<br>No stranger to fading grace.<br>No bat of the eye at this.<br>Lighting your lamps as the storms roll in.<br>Lift me through the branches.<br>Light me on my way.<br>Raise me up like Lazarus,<br>to die another day.<br>I think I got piece out of that which was eating me.<br>Shadow on my brain<br>of a shadow over me.",
+                    Snippet = "Lift me through the branches.<br>Light me on my way.<br>Raise me up like Lazarus,<br>to die another day."
                 }
             };
             return songs;

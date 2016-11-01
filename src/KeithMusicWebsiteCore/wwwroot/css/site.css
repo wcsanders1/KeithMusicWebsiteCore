@@ -168,7 +168,8 @@ footer {
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-    color: #922B21;
+    color: #B00E29;
+    /*color: #922B21;*/
 }
 
 #name-title-container h1,
@@ -196,7 +197,7 @@ footer {
 
 #navigation-container a {
     margin: 15px 15px;
-    font-size: 1.75em;
+    font-size: 2em;
     text-decoration: none;
     color: #FFFFCC;
 }
