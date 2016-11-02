@@ -216,7 +216,7 @@ function HighlightNavigation(currentPage) {
 /**************************    AUDIO CONTROLS   *********************************/
 
 
-$("body").on("click touchstart", "#play-pause-button", function () {  //touchstart for iOS
+$("body").on("click", "#play-pause-button", function () {  //touchstart for iOS
     var audioControl = document.getElementById("audio");
     if (audioControl.paused) {
         audioControl.play();
@@ -230,7 +230,7 @@ $("body").on("click touchstart", "#play-pause-button", function () {  //touchsta
     }
 });
 
-$("body").on("click touchstart", "#stop-button", function () {
+$("body").on("click", "#stop-button", function () {
     var audioControl = document.getElementById("audio");
 
     audioControl.pause();
@@ -239,27 +239,27 @@ $("body").on("click touchstart", "#stop-button", function () {
     ResetProgressBar();
 });
 
-$("body").on("click touchstart", "#back-button", function () {
+$("body").on("click", "#back-button", function () {
     $("#song-time-played").text("0:00");
     ChangeSong("back");
     ResetProgressBar();
     ResetPlayButton();
 });
 
-$("body").on("click touchstart", "#forward-button", function () {
+$("body").on("click", "#forward-button", function () {
     $("#song-time-played").text("0:00");
     ChangeSong("forward");
     ResetProgressBar();
     ResetPlayButton();
 });
 
-$("body").on("click touchstart", "#exit-button", function () {
+$("body").on("click", "#exit-button", function () {
     ResetPlayButton();
     ResetProgressBar();
     CloseLyricContainer();
 });
 
-$("body").on("click touchstart", "#progress-bar", function (e) {
+$("body").on("click", "#progress-bar", function (e) {
     var audioElement = document.getElementById("audio");
     var leftOffset = e.pageX - $(this).offset().left;
     var songPercents = leftOffset / $("#progress-bar").width();
@@ -391,10 +391,10 @@ function ClearAllIntervals() {
     }
 }
 
-$("body").on("click dbclick touchstart", "#youtube-link-left-button", function () {
+$("body").on("click dbclick", "#youtube-link-left-button", function () {
     SlideYouTubeLinks("left");
 });
 
-$("body").on("click dbclick touchstart", "#youtube-link-right-button", function () {
+$("body").on("click dbclick", "#youtube-link-right-button", function () {
     SlideYouTubeLinks("right");
 });

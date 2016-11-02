@@ -38,6 +38,7 @@
 #snippet-container p {
     max-width: 300px;
     margin-bottom: auto;
+    cursor: pointer;
 }
 
 #snippet-lyric {
@@ -95,6 +96,7 @@
     font-family: 'IM Fell English SC', serif;
     font-size: 2em;
     color: #FFFFCC;
+    cursor: pointer;
 }
 
 #lyric-button:hover {

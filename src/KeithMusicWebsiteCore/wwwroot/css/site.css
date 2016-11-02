@@ -143,6 +143,11 @@ footer {
     position: relative;
 }
 
+#keith-layout-picture {
+    height: 0;
+    width: 0;
+}
+
 #top-banner {
     width: 100%;
     min-height: 200px;
@@ -373,6 +378,7 @@ footer {
 	 align-items: center;
 	 justify-content: center;
      z-index: 5;
+     cursor: pointer;
  }
  
  .audio-buttons p {
