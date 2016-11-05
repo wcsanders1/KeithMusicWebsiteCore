@@ -248,6 +248,7 @@ function CloseLyricContainer() {
     volumeBar.value = 5;
     volumeIcon.removeClass("fa-volume-off fa-volume-up");
     volumeIcon.addClass("fa-volume-down");
+    $("#song-length").text("0:00");
 }
 
 

@@ -288,16 +288,19 @@ $("body").on("input change", "#volume-bar", function () {    //ie doesn't suppor
 
 var $tip = $("<p id='tooltip'></p>");
 
-$("body").on("mouseenter", "#progress-bar", function (e) {
+$("body").on("mouseenter touchstart", "#progress-bar", function (e) {
+    if (/Mobi/.test(navigator.userAgent)) {    // prevents this function from happening in mobile phones where there is no mouse
+        return;
+    }
     $("body").append($tip);
     $tip.fadeIn("slow");
     $tip.text(GetSongTime($tip, e.pageX));
-}).on("mousemove", "#progress-bar", function (e) {
+}).on("mousemove touchmove", "#progress-bar", function (e) {
     var mousex = e.pageX - 25;
     var mousey = e.pageY - 50;
     $tip.css({ top: mousey, left: mousex });
     $tip.text(GetSongTime($tip, e.pageX));
-}).on("mouseleave", "#progress-bar", function () {
+}).on("mouseleave touchend touchcancel", "#progress-bar", function () {
     $tip.remove();
 });
 
