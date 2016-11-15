@@ -1,2 +1,2 @@
 # KeithMusicWebsiteCore
-Website for musician's work
+This website showcases a musician's work: www.keithsandersmusic.com
